@@ -27,10 +27,10 @@ export default function HeroSection() {
 function Link(props) {
   return (
     <li className="text-[#FFB5CF] rounded-full  bg-white  border-2 w-[250px] flex justify-end items-center gap-3 relative left-[-110px] hover:left-0 transition-all ease-in-out duration-500">
-      <span className="text-black font-bold absolute top-1/2 left-1/2 transform -translate-x-1/4 -translate-y-1/2">
-        {props.name}
-      </span>
       <a href="" className="border-black  border-2 rounded-full p-2.5">
+        <span className="text-black font-bold absolute top-1/2 left-1/2 transform -translate-x-1/4 -translate-y-1/2">
+          {props.name}
+        </span>
         <FontAwesomeIcon icon={props.icon} />
       </a>
     </li>
