@@ -1,0 +1,32 @@
+/* spin 1s linear infinite */
+.social-link:hover .social-icon {
+  animation: spin 0.5s linear;
+}
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+button {
+  outline: none;
+  border: none;
+  cursor: pointer;
+}
+button:hover {
+  outline: none;
+  border: none;
+  cursor: pointer;
+}
+button:active {
+  outline: none;
+  border: none;
+  cursor: pointer;
+}
+button:focus {
+  outline: none;
+  border: none;
+  cursor: pointer;
+}

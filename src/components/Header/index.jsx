@@ -18,7 +18,7 @@ export default function Header() {
             <h1 className="Famory">Famory</h1>
           </a>
 
-          <div class={`${isOpen ? "hidden" : "block"}  m-[0px]`}>
+          <div class={`m-[0px] max-md:hidden`}>
             <ul class="flex gap-2  font-medium  rounded-lg text-[#FFB5CF] ">
               <ListItem content="Home" />
               <ListItem content="Our Products" />
@@ -32,13 +32,13 @@ export default function Header() {
               onClick={() => setIsOpen((e) => !e)}
               className="md:hidden"
             />
-            <Button icon={faCartShopping} />
-            <Button icon={faUser} />
-            <Button icon={faMagnifyingGlass} />
+            <Button icon={faCartShopping} className="max-md:hidden" />
+            <Button icon={faUser} className="max-md:hidden" />
+            <Button icon={faMagnifyingGlass} className="max-md:hidden" />
           </div>
         </div>
       </nav>
-      <div class={`${isOpen ? "block" : "hidden"} w-full m-[0px]`}>
+      <div class={`${isOpen ? "block" : "hidden"} w-full m-[0px]` }>
         <ul class="flex flex-col font-medium   text-[#FFB5CF] dark:bg-gray-800 dark:border-gray-700">
           <ListItem content="Home" />
           <ListItem content="Our Products" />
@@ -53,7 +53,7 @@ function Button(props) {
   return (
     <button
       onClick={props.onClick}
-      class="hover:scale-105 transition-all ease-in-out duration-500 inline-flex items-center justify-center p-2 w-10 h-10 text-sm rounded-lg  focus:outline-none  focus:ring-2 focus:ring-gray-200 hover:bg-[#FFB5CF] hover:text-black text-[#FFB5CF]"
+      class={`hover:scale-105 transition-all ease-in-out duration-500 inline-flex items-center justify-center p-2 w-10 h-10 text-sm rounded-lg  focus:outline-none  hover:bg-[#FFB5CF] hover:text-black text-[#FFB5CF]  ${props.className}`}
     >
       <span class="sr-only ">Open main menu</span>
 
