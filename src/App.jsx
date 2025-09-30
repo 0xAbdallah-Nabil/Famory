@@ -1,17 +1,9 @@
 import "./App.css";
-import Header from "./components/Header/index.jsx";
-import HeroSection from "./components/HeroSection/index.jsx";
-import Footer from "./components/Footer/index.jsx";
-import OurStory from "./components/OurStory/index.jsx";
-import OurCategories from "./components/OurCategories/index.jsx";
+import Home from "./Pages/Home/index.jsx"; 
 function App() {
   return (
     <>
-      <Header />
-      <HeroSection />
-      <OurCategories />
-      <OurStory />
-      <Footer />
+      <Home />
     </>
   );
 }
