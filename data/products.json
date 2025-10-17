@@ -2,7 +2,7 @@
   {
     "id": 1,
     "name": "Biscoff Drizzled Cookie",
-    "category": "creamy puffs",
+    "category": "Cookies",
     "description": "A warm cookie layered with creamy Biscoff spread and finished with a silky Biscoff drizzle.",
     "price": 60,
     "currency": "EGP",
@@ -13,7 +13,7 @@
   {
     "id": 2,
     "name": "Kinder Bueno Cookie",
-    "category": "creamy puffs",
+    "category": "Cookies",
     "description": "A soft cookie filled with milk chocolate chunks and drizzled with creamy Kinder Bueno.",
     "price": 65,
     "currency": "EGP",
@@ -24,7 +24,7 @@
   {
     "id": 3,
     "name": "Creamy Blueberry Cookie",
-    "category": "creamy puffs",
+    "category": "Cookies",
     "description": "A soft cookie base finished with creamy cheesecake frosting and blueberry topping.",
     "price": 65,
     "currency": "EGP",
@@ -35,7 +35,7 @@
   {
     "id": 4,
     "name": "Dark Brownies Drizzled Cookie",
-    "category": "creamy puffs",
+    "category": "Cookies",
     "description": "A rich dark chocolate cookie topped with a smooth chocolate drizzle for the ultimate fudgy bite.",
     "price": 65,
     "currency": "EGP",
@@ -46,7 +46,7 @@
   {
     "id": 5,
     "name": "Salted Caramel Pecan Cookie",
-    "category": "creamy puffs",
+    "category": "Cookies",
     "description": "A chewy cookie packed with roasted pecans, topped with golden caramel and a hint of sea salt.",
     "price": 75,
     "currency": "EGP",
@@ -57,7 +57,7 @@
   {
     "id": 6,
     "name": "Strawberry Cheesecake Cookie",
-    "category": "creamy puffs",
+    "category": "Cookies",
     "description": "A buttery cookie topped with cheesecake cream and fresh strawberry drizzle.",
     "price": 60,
     "currency": "EGP",
