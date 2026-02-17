@@ -14,7 +14,7 @@ import useCart from "../../hooks/useCart.js";
 import MobileMenu from "./MobileMenu.jsx";
 import Button from "./Button.jsx";
 import ListItem from "./ListItem.jsx";
-import LoginMenu from "./LoginMenu.jsx";
+
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
