@@ -1,0 +1,7 @@
+[data-aos] {
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+[data-aos].aos-animate {
+  opacity: 1;
+}

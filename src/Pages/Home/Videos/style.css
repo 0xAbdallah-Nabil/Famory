@@ -1,0 +1,26 @@
+.Famory {
+  font-family: "Fedrin Sambo", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: clamp(1.8rem, 4vw, 3rem); /* auto-resizes with screen width */
+  line-height: 1.2;
+  color: #ffb5cf;
+  border: none;
+  transition: color 0.3s ease-in-out;
+}
+
+.res {
+  font-size: clamp(
+    1rem,
+    4vw,
+    3rem
+  ) !important; /* auto-resizes with screen width */
+}
+.Famory:hover {
+  color: #ffffff; /* white hover for contrast */
+}
+
+.card:hover .overlay {
+  opacity: 0.5;
+  transition: all 0.2s ease-in-out;
+}

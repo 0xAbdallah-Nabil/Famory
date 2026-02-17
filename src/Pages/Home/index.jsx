@@ -1,17 +1,19 @@
-import Header from "../../components/Header/index.jsx";
-import HeroSection from "../../components/HeroSection/index.jsx";
-import Footer from "../../components/Footer/index.jsx";
-import OurStory from "../../components/OurStory/index.jsx";
-import OurCategories from "../../components/OurCategories/index.jsx";
+import HeroSection from "./HeroSection/index.jsx";
+import OurStory from "./OurStory/index.jsx";
 
+import AOS from "aos";
+import "aos/dist/aos.css";
+import { useEffect } from "react";
 function Home() {
+  useEffect(() => {
+    AOS.init({ duration: 500, once: true });
+  }, []);
   return (
     <>
-      <Header />
       <HeroSection />
-      <OurCategories />
+      {/* <OurCategories /> */}
       <OurStory />
-      <Footer />
+
     </>
   );
 }
