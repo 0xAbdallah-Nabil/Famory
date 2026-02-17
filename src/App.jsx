@@ -11,7 +11,7 @@ import Checkout from "./Pages/Checkout/Checkout.jsx";
 import OurServices from "./Pages/OurServices/OurServices.jsx";
 function App() {
   return (
-    <Router basename="">
+    <Router >
       <DiscountSection />
       <Header />
       <Routes>
