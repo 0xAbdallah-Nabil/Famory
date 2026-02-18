@@ -14,7 +14,7 @@ export default function MobileMenu({ isOpen }) {
           className="border-none flex justify-center items-center"
         />
         <ListItem
-          content="Our Products"
+          content="Our Services"
           className="border-none flex justify-center items-center"
         />
         <div
