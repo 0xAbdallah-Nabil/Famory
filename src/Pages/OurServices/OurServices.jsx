@@ -31,7 +31,7 @@ export default function OurServices() {
       id: 4,
       title: "Mini Creamy Puffs",
       description:
-        "Bite-sized creamy puffs packed with flavor, available in sets of 8 to 15 pieces",
+        "Mini Creamy Puff – 18 pcs Mini puffs filled with custard and assorted flavors",
       image:
         "https://res.cloudinary.com/dk1q6kpkk/image/upload/v1771373126/mini_creamy_buffs_jpdlg1.png",
     },
@@ -51,16 +51,8 @@ export default function OurServices() {
       image:
         "https://res.cloudinary.com/dk1q6kpkk/image/upload/v1771372581/christmas_creamy_buffs_zkleqa.jpg",
     },
-    {
+        {
       id: 7,
-      title: "Occasional Cards",
-      description:
-        "Beautifully crafted cards to accompany your sweet gifts for any special occasion",
-      image:
-        "https://res.cloudinary.com/dk1q6kpkk/image/upload/v1771372890/gift_card_hqbcxe.jpg",
-    },
-    {
-      id: 8,
       title: "Muffin",
       description:
         "Soft, fluffy muffins baked to perfection in a variety of delightful flavors",
@@ -68,20 +60,20 @@ export default function OurServices() {
         "https://res.cloudinary.com/dk1q6kpkk/image/upload/v1771373600/muffin2_tcffgu.jpg",
     },
     {
+      id: 8,
+      title: "Occasional Cards",
+      description:
+        "Beautifully crafted cards to accompany your sweet gifts for any special occasion",
+      image:
+        "https://res.cloudinary.com/dk1q6kpkk/image/upload/v1771374442/gift_card_2_ywdgf1.jpg",
+    },
+    {
       id: 9,
-      title: "Customized Orders",
+      title: "Customized Events & Orders",
       description:
         "Personalized treats tailored to your preferences, perfect for gifting or any special occasion",
       image:
-        "https://res.cloudinary.com/dk1q6kpkk/image/upload/v1771373003/custom_order_jwsowg.jpg",
-    },
-    {
-      id: 10,
-      title: "Events & Corporate Orders",
-      description:
-        "Bulk and bespoke sweet arrangements for corporate events, celebrations, and gatherings",
-      image:
-        "https://res.cloudinary.com/dk1q6kpkk/image/upload/v1771373677/events_fgv0r1.png",
+        "https://res.cloudinary.com/dk1q6kpkk/image/upload/v1771374935/events_and_orders_dvlkpz.jpg",
     },
   ];
 
