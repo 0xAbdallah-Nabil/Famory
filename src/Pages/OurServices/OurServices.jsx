@@ -7,7 +7,8 @@ export default function OurServices() {
       title: "Creamy Puffs",
       description:
         "Delicate pastries filled with rich, velvety cream in a variety of exquisite flavors",
-      image: "🌙",
+      image:
+        "https://res.cloudinary.com/dk1q6kpkk/image/upload/v1771372784/creamy_buffs_pdq45t.jpg",
       to: "/our-products",
     },
     {
@@ -15,77 +16,72 @@ export default function OurServices() {
       title: "Cinnabon",
       description:
         "World-famous cinnamon rolls with signature cream cheese frosting that melts in your mouth",
-      image: "🌙",
+      image:
+        "https://res.cloudinary.com/dk1q6kpkk/image/upload/v1771372234/cinnabon_ezwuvx.png",
     },
     {
       id: 3,
       title: "Ramadan Items",
       description:
         "Traditional and contemporary treats specially crafted for the holy month",
-      image: "🌙",
+      image:
+        "https://res.cloudinary.com/dk1q6kpkk/image/upload/v1771372227/ramadan_m3ulfg.png",
     },
     {
       id: 4,
-      title: "Ramadan Bundles",
-      description:
-        "Curated bundles of festive treats perfect for sharing during the holy month of Ramadan",
-      image: "🌙",
-    },
-    {
-      id: 5,
       title: "Mini Creamy Puffs",
       description:
         "Bite-sized creamy puffs packed with flavor, available in sets of 8 to 15 pieces",
-      image: "🍬",
+      image:
+        "https://res.cloudinary.com/dk1q6kpkk/image/upload/v1771373126/mini_creamy_buffs_jpdlg1.png",
+    },
+    {
+      id: 5,
+      title: "Cheesecake",
+      description:
+        "Irresistible cheesecake with a buttery crust and creamy filling, baked to perfection",
+      image:
+        "https://res.cloudinary.com/dk1q6kpkk/image/upload/v1771372573/cheesecake_v4wl0o.jpg",
     },
     {
       id: 6,
-      title: "Creamy Puffs",
-      description:
-        "Classic creamy puffs in generous portions, available in sets of 3 to 6 pieces",
-      image: "🍮",
-    },
-    {
-      id: 7,
-      title: "Cinnabon",
-      description:
-        "Irresistible cinnamon rolls baked fresh with layers of warm spice and creamy frosting",
-      image: "🌀",
-    },
-    {
-      id: 8,
       title: "Christmas Bundles",
       description:
         "Festive holiday bundles filled with seasonal treats to spread joy and sweetness",
-      image: "🎄",
+      image:
+        "https://res.cloudinary.com/dk1q6kpkk/image/upload/v1771372581/christmas_creamy_buffs_zkleqa.jpg",
     },
     {
-      id: 9,
+      id: 7,
       title: "Occasional Cards",
       description:
         "Beautifully crafted cards to accompany your sweet gifts for any special occasion",
-      image: "🎴",
+      image:
+        "https://res.cloudinary.com/dk1q6kpkk/image/upload/v1771372890/gift_card_hqbcxe.jpg",
     },
     {
-      id: 10,
+      id: 8,
       title: "Muffin",
       description:
         "Soft, fluffy muffins baked to perfection in a variety of delightful flavors",
-      image: "🧁",
+      image:
+        "https://res.cloudinary.com/dk1q6kpkk/image/upload/v1771373600/muffin2_tcffgu.jpg",
     },
     {
-      id: 11,
+      id: 9,
       title: "Customized Orders",
       description:
         "Personalized treats tailored to your preferences, perfect for gifting or any special occasion",
-      image: "✨",
+      image:
+        "https://res.cloudinary.com/dk1q6kpkk/image/upload/v1771373003/custom_order_jwsowg.jpg",
     },
     {
-      id: 12,
+      id: 10,
       title: "Events & Corporate Orders",
       description:
         "Bulk and bespoke sweet arrangements for corporate events, celebrations, and gatherings",
-      image: "🏢",
+      image:
+        "https://res.cloudinary.com/dk1q6kpkk/image/upload/v1771373677/events_fgv0r1.png",
     },
   ];
 
@@ -128,6 +124,12 @@ export default function OurServices() {
                 border-2 border-white/50
               `}
               >
+                <img
+                  src={service.image}
+                  alt={service.title}
+                  className="w-full h-48 object-cover rounded-3xl mb-6"
+                  loading="lazy"
+                />
                 {/* Title */}
                 <h3 className="text-3xl font-bold text-gray-800 mb-4">
                   {service.title}
