@@ -58,7 +58,7 @@ export default function useCart() {
         );
       } else {
         // Otherwise, add new item
-        return [...prevCart, { ...item, quantity }];
+        return [...prevCart, { ...item, quantity, }];
       }
     });
   };

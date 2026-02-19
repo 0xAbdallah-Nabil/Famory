@@ -342,29 +342,35 @@ export default function CheckoutPage() {
 
               {/* Cart Items */}
               <div className="space-y-4 mb-6">
-                {cartItems.map((item) => (
-                  <div key={item.id} className="flex gap-4">
-                    <div className="w-20 h-20 bg-gray-200 rounded-lg flex-shrink-0 overflow-hidden">
-                      <img
-                        src={item.image}
-                        alt={item.name}
-                        className="w-full h-full object-cover"
-                        onError={(e) => {
-                          e.target.src =
-                            'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="80" height="80"%3E%3Crect fill="%23e5e7eb" width="80" height="80"/%3E%3Ctext x="50%25" y="50%25" dominant-baseline="middle" text-anchor="middle" fill="%239ca3af" font-family="sans-serif" font-size="12"%3ECookie%3C/text%3E%3C/svg%3E';
-                        }}
-                      />
-                    </div>
-                    <div className="flex-1 min-w-0">
-                      <h3 className="font-medium text-gray-900 text-sm truncate">
-                        {item.name}
-                      </h3>
-                      <p className="text-sm text-gray-500 mt-1">
-                        Qty: {item.quantity}
-                      </p>
-                      <p className="text-sm font-semibold text-gray-900 mt-1">
-                        {item.price * item.quantity} {item.currency}
-                      </p>
+                {cart.map((item) => (
+                  <div
+                    key={item.id}
+                    className="flex gap-10 items-center justify-evenly w-full p-3 rounded-lg"
+                  >
+                    <div className="w-full flex flex-col justify-center items-center">
+                      <div className="flex gap-2 justify-between items-center w-full">
+                        <p className="font-bold text-[18px]">{item.name}</p>
+                        <div className="flex gap-2">
+                          <h2>Price:</h2>
+                          <p className="font-bold">EGP {item.price}</p>
+                        </div>
+                      </div>
+
+                      <div className="flex flex-row gap-2 justify-between items-center mb-4 w-full">
+                        <p className="font-bold">Details:</p>
+                        {/* Show details if present */}
+                        {item.details ? (
+                          <span className="text-[16px] font-bold text-[#b5813a] font-cormorant">
+                            {item.details}
+                          </span>
+                        ) : (
+                          <span className="text-xs text-[#b09a85]">
+                            No details
+                          </span>
+                        )}
+                      </div>
+
+                      <hr className="w-full" />
                     </div>
                   </div>
                 ))}

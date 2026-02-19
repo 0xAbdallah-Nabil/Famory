@@ -4,7 +4,7 @@ import useCart from "../../../hooks/useCart.js";
 
 const createBox = () => ({ puffs: ["", "", ""] });
 
-export default function CreamyPuffsForm() {
+export default function CreamyPuffsForm({ FLAVORS }) {
   const [boxes, setBoxes] = useState([createBox()]);
   const { handleAddToCart, openCart } = useCart();
 
@@ -24,11 +24,24 @@ export default function CreamyPuffsForm() {
     if (!allComplete) return;
 
     boxes.forEach((box, i) => {
+      // Count each flavour and calculate total price
+      const flavorCounts = box.puffs.reduce((acc, flavorName) => {
+        if (!flavorName) return acc;
+        acc[flavorName] = (acc[flavorName] || 0) + 1;
+        return acc;
+      }, {});
+      const details = Object.entries(flavorCounts)
+        .map(([name, count]) => `${name} x${count}`)
+        .join(", ");
+      const price = box.puffs.reduce((sum, flavorName) => {
+        const flavorObj = FLAVORS.find((f) => f.name === flavorName);
+        return sum + (flavorObj ? flavorObj.price : 0);
+      }, 0);
       const item = {
-        id: `creamy-puffs-box-${i}-${Date.now()}`, // unique id per box
+        id: `creamy-puffs-box-${i}-${Date.now()}`,
         name: `Creamy Puffs Box (${box.puffs.length} puffs)`,
-        details: box.puffs.join(", "), // flavor breakdown
-        price: 0, // replace with real price
+        details,
+        price,
       };
       handleAddToCart(item, 1);
     });
@@ -46,6 +59,7 @@ export default function CreamyPuffsForm() {
             {boxes.map((box, i) => (
               <BoxCard
                 key={i}
+                FLAVORS={FLAVORS}
                 boxIndex={i}
                 box={box}
                 onUpdate={(updated) => updateBox(i, updated)}

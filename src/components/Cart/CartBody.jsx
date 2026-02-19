@@ -12,23 +12,32 @@ export default function CartBody() {
           className="flex gap-10 items-center justify-evenly w-full p-3 rounded-lg"
         >
           <div className="w-full flex flex-col justify-center items-center">
-            <div className="flex gap-2 justify-evenly items-center w-full">
-              <p className="font-bold">{item.name}</p>
+            <div className="flex gap-2 justify-between items-center w-full">
+              <p className="font-bold text-[18px]">{item.name}</p>
               <div className="flex gap-2">
                 <h2>Price:</h2>
                 <p className="font-bold">EGP {item.price}</p>
               </div>
             </div>
 
-            <div className="flex gap-2 justify-center items-center mb-4">
-              <QuantityButtons id={item.id} />
+            <div className="flex flex-row gap-2 justify-between items-center mb-4 w-full">
 
-              <button
-                onClick={() => handleRemove(item.id)}
-                className="active:scale-90 hover:scale-105 transition-all duration-200 hover:text-red-500"
-              >
-                <FontAwesomeIcon icon={faTrashCan} />
-              </button>
+                <p className="font-bold">Details:</p>
+                {/* Show details if present */}
+                {item.details ? (
+                  <span className="text-[16px] font-bold text-[#b5813a] font-cormorant">
+                    {item.details}
+                  </span>
+                ) : (
+                  <span className="text-xs text-[#b09a85]">No details</span>
+                )}
+                <button
+                  onClick={() => handleRemove(item.id)}
+                  className="active:scale-90 hover:scale-105 transition-all duration-200 hover:text-red-500 ml-auto"
+                >
+                  <FontAwesomeIcon icon={faTrashCan} />
+                </button>
+
             </div>
 
             <hr className="w-full" />

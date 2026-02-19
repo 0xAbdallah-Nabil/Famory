@@ -1,14 +1,6 @@
-const FLAVORS = [
-  "Vanilla",
-  "Chocolate",
-  "Strawberry",
-  "Pistachio",
-  "Caramel",
-  "Mango",
-  "Rose",
-  "Lotus",
-];
-export default function PuffSlot({ index, flavor, onFlavorChange }) {
+
+
+export default function PuffSlot({ index, flavor, onFlavorChange,FLAVORS }) {
   return (
     <div
       className={`flex items-center gap-3 p-2.5 rounded-lg border-1.5 transition-all duration-200 ${
@@ -33,8 +25,8 @@ export default function PuffSlot({ index, flavor, onFlavorChange }) {
       >
         <option value="">— Select a flavor —</option>
         {FLAVORS.map((f) => (
-          <option key={f} value={f}>
-            {f}
+          <option key={f.id} value={f.name}>
+            {f.name} price: {f.price} EGP
           </option>
         ))}
       </select>

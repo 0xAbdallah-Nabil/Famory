@@ -1,13 +1,19 @@
 import { useParams } from "react-router-dom";
-import Description from "./Description.jsx";
-import Price from "./Price.jsx";
-import Name from "./Name.jsx";
 import CreamyPuffsForm from "./CreamyBuffs/CreamyBuffs.jsx";
 const services = [
   {
     id: 1,
     title: "Creamy Puffs",
-    price: 20,
+    FLAVORS: [
+      { id: 1, name: "Kinder", price: 65 },
+      { id: 2, name: "Mixed Berries", price: 65 },
+      { id: 3, name: "Crème Brûlée", price: 60 },
+      { id: 4, name: "Pistachio", price: 60 },
+      { id: 5, name: "Crunchy Lotus", price: 55 },
+      { id: 6, name: "Cookies & Cream", price: 55 },
+      { id: 7, name: "Caramel", price: 45 },
+      { id: 8, name: "Chocolate", price: 45 },
+    ],
     type: "peace",
     description:
       "Delicate pastries filled with rich, velvety cream in a variety of exquisite flavors",
@@ -135,10 +141,19 @@ function Card() {
                   loading="lazy"
                 />
                 <div className="flex flex-col justify-center items-center gap-5 p-6 rounded-md shadow-md w-full">
-                  <Name item={item} />
-                  <Price item={item} />
-                  <Description item={item} />
-                  <item.component />
+                  <div className="flex justify-center items-center mb-4 w-full">
+                    <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-center smooth-sans">
+                      {item.title}
+                    </h1>
+                  </div>
+
+                  <div className="flex gap-3 items-center mb-5 w-full justify-center px-2">
+                    <p className="text-lg sm:text-xl text-center">
+                      {item.description}
+                    </p>
+                  </div>
+
+                  <item.component FLAVORS={item.FLAVORS} />
                 </div>
               </section>
             </div>

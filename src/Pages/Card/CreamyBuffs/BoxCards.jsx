@@ -1,10 +1,12 @@
 import PuffSlot from "./PuffSlot";
+
 export default function BoxCard({
   boxIndex,
   box,
   onUpdate,
   onRemove,
   canRemove,
+  FLAVORS,
 }) {
   const count = box.puffs.length;
 
@@ -23,6 +25,13 @@ export default function BoxCard({
     onUpdate({ ...box, puffs: newPuffs });
   };
 
+  // Calculate total price for selected flavours
+  const selectedFlavors = box.puffs.filter((f) => f !== "");
+  const totalPrice = box.puffs.reduce((sum, flavorName) => {
+    const flavorObj = FLAVORS.find((f) => f.name === flavorName);
+    return sum + (flavorObj ? flavorObj.price : 0);
+  }, 0);
+
   const allFilled = box.puffs.every((f) => f !== "");
 
   return (
@@ -37,6 +46,12 @@ export default function BoxCard({
             {allFilled && (
               <div className="text-xs text-[#b5813a] font-cormorant">
                 ✓ Complete
+              </div>
+            )}
+            {/* Show total price if any flavour selected */}
+            {selectedFlavors.length > 0 && (
+              <div className="text-xs text-[#b5813a] font-cormorant mt-1">
+                Total: <span className="font-bold">EGP {totalPrice}</span>
               </div>
             )}
           </div>
@@ -95,7 +110,7 @@ export default function BoxCard({
           <PuffSlot
             key={i}
             index={i}
-            flavor={flavor}
+            FLAVORS={FLAVORS}
             onFlavorChange={(f) => setFlavor(i, f)}
           />
         ))}
