@@ -3,6 +3,9 @@ export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {
+      fontFamily: {
+        cormorant: ["'Cormorant Garamond', serif"],
+      },
       keyframes: {
         typing: {
           "0%": { width: "0ch", visibility: "visible" },

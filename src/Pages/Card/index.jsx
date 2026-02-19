@@ -1,53 +1,148 @@
 import { useParams } from "react-router-dom";
-import useFetch from "../../hooks/useFetch";
-import MoveBack from "./moveBack.jsx";
-import Quantity from "./Quantity.jsx";
-import AddToCart from "./addToCart.jsx";
-import QuantityButtons from "../../components/QuantityButtons/index.jsx";
-import { useState } from "react";
 import Description from "./Description.jsx";
-import Image from "./Image.jsx";
 import Price from "./Price.jsx";
 import Name from "./Name.jsx";
+import CreamyPuffsForm from "./CreamyBuffs/CreamyBuffs.jsx";
+const services = [
+  {
+    id: 1,
+    title: "Creamy Puffs",
+    price: 20,
+    type: "peace",
+    description:
+      "Delicate pastries filled with rich, velvety cream in a variety of exquisite flavors",
+    image:
+      "https://res.cloudinary.com/dk1q6kpkk/image/upload/v1771372784/creamy_buffs_pdq45t.jpg",
+    to: "/our-products",
+    component: CreamyPuffsForm,
+    avilability: true,
+  },
+  {
+    id: 2,
+    title: "Cinnabon",
+    price: 20,
+    type: "peace",
+    description:
+      "World-famous cinnamon rolls with signature cream cheese frosting that melts in your mouth",
+    image:
+      "https://res.cloudinary.com/dk1q6kpkk/image/upload/v1771372234/cinnabon_ezwuvx.png",
+    component: "CinnabonForm",
+    avilability: true,
+  },
+  {
+    id: 3,
+    title: "Ramadan Items",
+    price: 20,
+    type: "peace",
+    description:
+      "Traditional and contemporary treats specially crafted for the holy month",
+    image:
+      "https://res.cloudinary.com/dk1q6kpkk/image/upload/v1771372227/ramadan_m3ulfg.png",
+    component: "RamadanItemsForm",
+    avilability: true,
+  },
+  {
+    id: 4,
+    title: "Mini Creamy Puffs",
+    price: 20,
+    type: "peace",
+    description:
+      "Bite-sized creamy puffs packed with flavor, available in sets of 8 to 15 pieces",
+    image:
+      "https://res.cloudinary.com/dk1q6kpkk/image/upload/v1771373126/mini_creamy_buffs_jpdlg1.png",
+    component: "MiniCreamyPuffsForm",
+    avilability: true,
+  },
+  {
+    id: 5,
+    title: "Cheesecake",
+    price: 20,
+    type: "peace",
+    description:
+      "Rich and creamy cheesecakes crafted with the finest ingredients in a variety of flavors",
+    image:
+      "https://res.cloudinary.com/dk1q6kpkk/image/upload/v1771372573/cheesecake_v4wl0o.jpg",
+    component: "CheesecakeForm",
+    avilability: true,
+  },
+  {
+    id: 6,
+    title: "Christmas Bundles",
+    price: 20,
+    type: "peace",
+    description:
+      "Festive holiday bundles filled with seasonal treats to spread joy and sweetness",
+    image:
+      "https://res.cloudinary.com/dk1q6kpkk/image/upload/v1771372581/christmas_creamy_buffs_zkleqa.jpg",
+    component: "ChristmasBundlesForm",
+    avilability: true,
+  },
+  {
+    id: 7,
+    title: "Muffin",
+    price: 20,
+    type: "peace",
+    description:
+      "Soft, fluffy muffins baked to perfection in a variety of delightful flavors",
+    image:
+      "https://res.cloudinary.com/dk1q6kpkk/image/upload/v1771373600/muffin2_tcffgu.jpg",
+    component: "MuffinForm",
+    avilability: true,
+  },
+  {
+    id: 8,
+    title: "Customized Orders",
+    price: null,
+    type: "not",
+    description:
+      "Personalized treats tailored to your preferences, perfect for gifting or any special occasion",
+    image:
+      "https://res.cloudinary.com/dk1q6kpkk/image/upload/v1771373600/muffin2_tcffgu.jpg",
+    component: "CustomizedOrdersForm",
+    avilability: true,
+  },
+  {
+    id: 9,
+    title: "Events & Corporate Orders",
+    price: null,
+    type: "not",
+    description:
+      "Bulk and bespoke sweet arrangements for corporate events, celebrations, and gatherings",
+    image:
+      "https://res.cloudinary.com/dk1q6kpkk/image/upload/v1771373600/muffin2_tcffgu.jpg",
+    component: "EventsCorporateForm",
+    avilability: true,
+  },
+];
 function Card() {
   const { id } = useParams();
-  const [quantity, setQuantity] = useState(1);
-  const { isLoading, products } = useFetch("data/products.json");
 
   return (
     <>
-      {isLoading ? (
-        <div className="flex flex-col justify-center items-center min-h-[66vh] bg-[#fff9ed]">
-          <strong>Loading...</strong>
-        </div>
-      ) : (
-        products.map(
-          (item) =>
-            item.id == id &&
-            item.soldOut == false && (
-              <div className="bg-[#fff9ed]">
-                <MoveBack category={item.category} />
-                <section
-                  key={item.id}
-                  className="grid grid-cols-1 lg:grid-cols-2 gap-10 p-6 lg:p-10  max-w-[90%] mx-auto min-h-[80vh] items-center"
-                >
-                  <Image item={item} />
-
-                  <div className="flex flex-col justify-center items-center gap-5 p-6 rounded-md shadow-md w-full">
-                    <Name item={item} />
-                    <Price item={item} />
-                    <Description item={item} />
-                    <Quantity quantity={quantity} setQuantity={setQuantity} />
-                    <AddToCart
-                      item={item}
-                      quantity={quantity}
-                      setQuantity={setQuantity}
-                    />
-                  </div>
-                </section>
-              </div>
-            ),
-        )
+      {services.map(
+        (item) =>
+          item.id == id &&
+          item.avilability == true && (
+            <div className="bg-[#fff9ed]">
+              <section
+                key={item.id}
+                className="grid grid-cols-1 lg:grid-cols-2 gap-10 p-6 lg:p-10  max-w-[90%] mx-auto min-h-[80vh] items-center"
+              >
+                <img
+                  src={item.image}
+                  alt={item.title}
+                  className="w-full h-96 object-cover rounded-3xl mb-6"
+                  loading="lazy"
+                />
+                <div className="flex flex-col justify-center items-center gap-5 p-6 rounded-md shadow-md w-full">
+                  <Name item={item} />
+                  <Price item={item} />
+                  <Description item={item} />
+                  <item.component />
+                </div>
+              </section>
+            </div>
+          ),
       )}
     </>
   );

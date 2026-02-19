@@ -2,7 +2,6 @@ import OSImg from "../../../assets/OurStory3.jpg";
 function OurStory() {
   return (
     <div
-      data-aos="zoom-in-up"
       className="relative bg-[#FFB5CF] bg-auto md:bg-contain sm:p-14 p-3  flex items-center max-h-[500px] min-h-[600px] "
       style={{
         backgroundImage: `url(${OSImg})`,

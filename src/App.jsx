@@ -9,6 +9,7 @@ import DiscountSection from "./components/DiscountSection/index.jsx";
 import "./App.css";
 import Checkout from "./Pages/Checkout/Checkout.jsx";
 import OurServices from "./Pages/OurServices/OurServices.jsx";
+import CreamyPuffsForm from "./Pages/CreamyBuffs/CreamyBuffs.jsx";
 function App() {
   return (
     <Router>
@@ -20,6 +21,7 @@ function App() {
         <Route path="/checkout" element={<Checkout />} />
         <Route path="/our-services" element={<OurServices />} />
         <Route path="/our-services/:id" element={<Card />} />
+
       </Routes>
       <Footer />
     </Router>
