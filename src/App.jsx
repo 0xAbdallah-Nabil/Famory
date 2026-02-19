@@ -9,7 +9,6 @@ import DiscountSection from "./components/DiscountSection/index.jsx";
 import "./App.css";
 import Checkout from "./Pages/Checkout/Checkout.jsx";
 import OurServices from "./Pages/OurServices/OurServices.jsx";
-import CreamyPuffsForm from "./Pages/CreamyBuffs/CreamyBuffs.jsx";
 function App() {
   return (
     <Router>
