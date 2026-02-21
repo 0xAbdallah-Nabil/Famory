@@ -2,7 +2,10 @@ import { useState } from "react";
 import BoxCard from "./BoxCards.jsx";
 import useCart from "../../../hooks/useCart.js";
 
-const createBox = () => ({ puffs: ["", "", ""] });
+const createBox = () => ({
+  id: Date.now() + Math.random(),
+  puffs: ["", "", ""],
+});
 
 export default function CreamyPuffsForm({ FLAVORS }) {
   const [boxes, setBoxes] = useState([createBox()]);
@@ -58,7 +61,7 @@ export default function CreamyPuffsForm({ FLAVORS }) {
           <div className="flex flex-col gap-4 mb-5">
             {boxes.map((box, i) => (
               <BoxCard
-                key={i}
+                key={box.id}
                 FLAVORS={FLAVORS}
                 boxIndex={i}
                 box={box}

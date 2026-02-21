@@ -69,7 +69,7 @@ export default function OurServices() {
     },
     {
       id: 9,
-      title: "Customized Events & Orders",
+      title: "Customized Orders & Events",
       description:
         "Personalized treats tailored to your preferences, perfect for gifting or any special occasion",
       image:

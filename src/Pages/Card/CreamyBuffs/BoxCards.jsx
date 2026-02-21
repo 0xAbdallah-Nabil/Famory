@@ -108,8 +108,9 @@ export default function BoxCard({
         </div>
         {box.puffs.map((flavor, i) => (
           <PuffSlot
-            key={i}
+            key={box.id + "-" + i}
             index={i}
+            flavor={flavor}
             FLAVORS={FLAVORS}
             onFlavorChange={(f) => setFlavor(i, f)}
           />

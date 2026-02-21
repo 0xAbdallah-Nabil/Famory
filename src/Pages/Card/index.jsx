@@ -1,5 +1,14 @@
 import { useParams } from "react-router-dom";
+import ChheeseCake from "./ChheeseCake/ChheeseCake.jsx";
 import CreamyPuffsForm from "./CreamyBuffs/CreamyBuffs.jsx";
+import ChristmasBundles from "./ChristmasBundles/ChristmasBundles.jsx";
+import Cinnabon from "./Cinnabon/Cinnabon.jsx";
+import CustomizedOrders from "./CustomizedOrders/CustomizedOrders.jsx";
+import MiniCreamyBuffs from "./MiniCreamyBuffs/MiniCreamyBuffs.jsx";
+import Muffin from "./Muffin/Muffin.jsx";
+import OccasionalCards from "./OccasionalCards/OccasionalCards.jsx";
+import Ramadan from "./Ramadan/Ramadan.jsx";
+import Unavilable from "./Unavilable.jsx";
 const services = [
   {
     id: 1,
@@ -32,7 +41,7 @@ const services = [
       "World-famous cinnamon rolls with signature cream cheese frosting that melts in your mouth",
     image:
       "https://res.cloudinary.com/dk1q6kpkk/image/upload/v1771372234/cinnabon_ezwuvx.png",
-    component: "CinnabonForm",
+    component: Cinnabon,
     avilability: true,
   },
   {
@@ -44,7 +53,7 @@ const services = [
       "Traditional and contemporary treats specially crafted for the holy month",
     image:
       "https://res.cloudinary.com/dk1q6kpkk/image/upload/v1771372227/ramadan_m3ulfg.png",
-    component: "RamadanItemsForm",
+    component: Ramadan,
     avilability: true,
   },
   {
@@ -53,10 +62,10 @@ const services = [
     price: 20,
     type: "peace",
     description:
-      "Bite-sized creamy puffs packed with flavor, available in sets of 8 to 15 pieces",
+      "Mini Creamy Puff – 18 pcs Mini puffs filled with custard and assorted flavors",
     image:
       "https://res.cloudinary.com/dk1q6kpkk/image/upload/v1771373126/mini_creamy_buffs_jpdlg1.png",
-    component: "MiniCreamyPuffsForm",
+    component: MiniCreamyBuffs,
     avilability: true,
   },
   {
@@ -68,7 +77,7 @@ const services = [
       "Rich and creamy cheesecakes crafted with the finest ingredients in a variety of flavors",
     image:
       "https://res.cloudinary.com/dk1q6kpkk/image/upload/v1771372573/cheesecake_v4wl0o.jpg",
-    component: "CheesecakeForm",
+    component: ChheeseCake,
     avilability: true,
   },
   {
@@ -80,7 +89,7 @@ const services = [
       "Festive holiday bundles filled with seasonal treats to spread joy and sweetness",
     image:
       "https://res.cloudinary.com/dk1q6kpkk/image/upload/v1771372581/christmas_creamy_buffs_zkleqa.jpg",
-    component: "ChristmasBundlesForm",
+    component: ChristmasBundles,
     avilability: true,
   },
   {
@@ -92,32 +101,32 @@ const services = [
       "Soft, fluffy muffins baked to perfection in a variety of delightful flavors",
     image:
       "https://res.cloudinary.com/dk1q6kpkk/image/upload/v1771373600/muffin2_tcffgu.jpg",
-    component: "MuffinForm",
+    component: Muffin,
     avilability: true,
   },
   {
     id: 8,
-    title: "Customized Orders",
+    title: "Occasional Cards",
+    price: null,
+    type: "not",
+    description:
+      "Beautifully crafted cards to accompany your sweet gifts for any special occasion",
+    image:
+      "https://res.cloudinary.com/dk1q6kpkk/image/upload/v1771374442/gift_card_2_ywdgf1.jpg",
+    component: OccasionalCards,
+    avilability: true,
+  },
+  {
+    id: 9,
+    title: "Customized Orders & Events",
     price: null,
     type: "not",
     description:
       "Personalized treats tailored to your preferences, perfect for gifting or any special occasion",
     image:
-      "https://res.cloudinary.com/dk1q6kpkk/image/upload/v1771373600/muffin2_tcffgu.jpg",
-    component: "CustomizedOrdersForm",
-    avilability: true,
-  },
-  {
-    id: 9,
-    title: "Events & Corporate Orders",
-    price: null,
-    type: "not",
-    description:
-      "Bulk and bespoke sweet arrangements for corporate events, celebrations, and gatherings",
-    image:
-      "https://res.cloudinary.com/dk1q6kpkk/image/upload/v1771373600/muffin2_tcffgu.jpg",
-    component: "EventsCorporateForm",
-    avilability: true,
+      "https://res.cloudinary.com/dk1q6kpkk/image/upload/v1771374935/events_and_orders_dvlkpz.jpg",
+    component: CustomizedOrders,
+    avilability: false,
   },
 ];
 function Card() {
@@ -125,39 +134,39 @@ function Card() {
 
   return (
     <>
-      {services.map(
-        (item) =>
-          item.id == id &&
-          item.avilability == true && (
-            <div className="bg-[#fff9ed]">
-              <section
-                key={item.id}
-                className="grid grid-cols-1 lg:grid-cols-2 gap-10 p-6 lg:p-10  max-w-[90%] mx-auto min-h-[80vh] items-center"
-              >
-                <img
-                  src={item.image}
-                  alt={item.title}
-                  className="w-full h-96 object-cover rounded-3xl mb-6"
-                  loading="lazy"
-                />
-                <div className="flex flex-col justify-center items-center gap-5 p-6 rounded-md shadow-md w-full">
-                  <div className="flex justify-center items-center mb-4 w-full">
-                    <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-center smooth-sans">
-                      {item.title}
-                    </h1>
-                  </div>
-
-                  <div className="flex gap-3 items-center mb-5 w-full justify-center px-2">
-                    <p className="text-lg sm:text-xl text-center">
-                      {item.description}
-                    </p>
-                  </div>
-
-                  <item.component FLAVORS={item.FLAVORS} />
+      {services.map((item) =>
+        item.id == id && item.avilability == true ? (
+          <div className="bg-[#fff9ed]">
+            <section
+              key={item.id}
+              className="grid grid-cols-1 lg:grid-cols-2 gap-10 p-6 lg:p-10  max-w-[90%] mx-auto min-h-[80vh] items-center"
+            >
+              <img
+                src={item.image}
+                alt={item.title}
+                className="w-full h-96 object-cover rounded-3xl mb-6"
+                loading="lazy"
+              />
+              <div className="flex flex-col justify-center items-center gap-5 p-6 rounded-md shadow-md w-full">
+                <div className="flex justify-center items-center mb-4 w-full">
+                  <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-center smooth-sans">
+                    {item.title}
+                  </h1>
                 </div>
-              </section>
-            </div>
-          ),
+
+                <div className="flex gap-3 items-center mb-5 w-full justify-center px-2">
+                  <p className="text-lg sm:text-xl text-center">
+                    {item.description}
+                  </p>
+                </div>
+
+                <item.component FLAVORS={item.FLAVORS} />
+              </div>
+            </section>
+          </div>
+        ) : item.id == id && item.avilability == false ? (
+          <Unavilable />
+        ) : null,
       )}
     </>
   );
