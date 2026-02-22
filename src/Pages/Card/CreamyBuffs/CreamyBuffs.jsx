@@ -76,7 +76,7 @@ export default function CreamyPuffsForm({ FLAVORS }) {
           <button
             type="button"
             onClick={addBox}
-            className="w-full py-3.5 border-2 border-dashed border-[#d4a96a] rounded-xl bg-transparent text-[#b5813a] font-cormorant text-lg font-semibold cursor-pointer mb-5 tracking-wide hover:bg-[#fdf8f2] transition-colors"
+            className="w-full py-3.5 border-2 border-dashed border-[#e60077] rounded-xl bg-transparent text-[#e60077] font-cormorant text-lg font-semibold cursor-pointer mb-5 tracking-wide hover:bg-[#fbeaf5] transition-colors"
           >
             + Add Another Box
           </button>
@@ -94,7 +94,7 @@ export default function CreamyPuffsForm({ FLAVORS }) {
             disabled={!allComplete}
             className={`w-full py-4 px-6 border-0 rounded-xl font-cormorant text-2xl font-bold tracking-widest transition-all duration-300 ${
               allComplete
-                ? "bg-gradient-to-r from-[#c8923e] to-[#a06828] text-white cursor-pointer shadow-lg hover:shadow-xl hover:from-[#d4a354] hover:to-[#b07841]"
+                ? "bg-[#e60077] text-white cursor-pointer shadow-lg hover:shadow-xl hover:bg-[#c80060]"
                 : "bg-[#e8ddd0] text-[#b09a85] cursor-not-allowed"
             }`}
           >

@@ -21,23 +21,21 @@ export default function CartBody() {
             </div>
 
             <div className="flex flex-row gap-2 justify-between items-center mb-4 w-full">
-
-                <p className="font-bold">Details:</p>
-                {/* Show details if present */}
-                {item.details ? (
-                  <span className="text-[16px] font-bold text-[#b5813a] font-cormorant">
-                    {item.details}
-                  </span>
-                ) : (
-                  <span className="text-xs text-[#b09a85]">No details</span>
-                )}
-                <button
-                  onClick={() => handleRemove(item.id)}
-                  className="active:scale-90 hover:scale-105 transition-all duration-200 hover:text-red-500 ml-auto"
-                >
-                  <FontAwesomeIcon icon={faTrashCan} />
-                </button>
-
+              <p className="font-bold">Details:</p>
+              {/* Show details if present */}
+              {item.details ? (
+                <span className="text-[16px] font-bold text-[#b5813a] font-cormorant">
+                  {item.details}
+                </span>
+              ) : (
+                <span className="text-xs text-[#b09a85]">No details</span>
+              )}
+              <button
+                onClick={() => handleRemove(item.id)}
+                className="active:scale-90 hover:scale-105 transition-all duration-200 hover:text-red-500 ml-auto"
+              >
+                <FontAwesomeIcon icon={faTrashCan} />
+              </button>
             </div>
 
             <hr className="w-full" />

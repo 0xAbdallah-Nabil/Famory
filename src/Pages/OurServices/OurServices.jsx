@@ -51,7 +51,7 @@ export default function OurServices() {
       image:
         "https://res.cloudinary.com/dk1q6kpkk/image/upload/v1771372581/christmas_creamy_buffs_zkleqa.jpg",
     },
-        {
+    {
       id: 7,
       title: "Muffin",
       description:
@@ -141,7 +141,7 @@ export default function OurServices() {
                   transform transition-all duration-300
                   hover:scale-105
                   hover:shadow-lg
-                  focus:outline-none focus:ring-2 focus:ring-amber-400 focus:ring-offset-2
+                  focus:outline-none focus:ring-2 focus:ring-[#e60077] focus:ring-offset-2
                 "
                 >
                   Explore Menu

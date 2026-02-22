@@ -67,7 +67,7 @@ export default function BoxCard({
               className={`w-6 h-6 rounded border-0 font-bold text-base flex items-center justify-center transition-all ${
                 count <= 3
                   ? "bg-[#f5f0eb] text-[#c9b8a5] cursor-not-allowed"
-                  : "bg-[#b5813a] text-white cursor-pointer"
+                  : "bg-[#e60077] text-white cursor-pointer hover:bg-[#c80060]"
               }`}
             >
               −
@@ -82,7 +82,7 @@ export default function BoxCard({
               className={`w-6 h-6 rounded border-0 font-bold text-base flex items-center justify-center transition-all ${
                 count >= 6
                   ? "bg-[#f5f0eb] text-[#c9b8a5] cursor-not-allowed"
-                  : "bg-[#b5813a] text-white cursor-pointer"
+                  : "bg-[#e60077] text-white cursor-pointer hover:bg-[#c80060]"
               }`}
             >
               +
@@ -93,7 +93,7 @@ export default function BoxCard({
             <button
               type="button"
               onClick={onRemove}
-              className="w-8 h-8 rounded border border-[#f0d5d5] bg-[#fff5f5] text-[#c0747a] cursor-pointer text-base flex items-center justify-center hover:bg-[#ffe8eb] transition-colors"
+              className="w-8 h-8 rounded border border-[#e60077] bg-[#fbeaf5] text-[#e60077] cursor-pointer text-base flex items-center justify-center hover:bg-[#ffe8eb] transition-colors"
             >
               ×
             </button>

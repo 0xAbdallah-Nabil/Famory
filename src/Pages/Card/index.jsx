@@ -9,6 +9,7 @@ import Muffin from "./Muffin/Muffin.jsx";
 import OccasionalCards from "./OccasionalCards/OccasionalCards.jsx";
 import Ramadan from "./Ramadan/Ramadan.jsx";
 import Unavilable from "./Unavilable.jsx";
+
 const services = [
   {
     id: 1,
@@ -35,10 +36,80 @@ const services = [
   {
     id: 2,
     title: "Cinnabon",
-    price: 20,
+    PRODUCTS: {
+      classic: [
+        { id: "classic-4", name: "Classic Roll", pieces: "4 PCS", price: 350 },
+        {
+          id: "caramel-nuts-4",
+          name: "Caramel Nuts Roll",
+          pieces: "4 PCS",
+          price: 430,
+        },
+        {
+          id: "caramel-pecan-4",
+          name: "Caramel Pecan Roll",
+          pieces: "4 PCS",
+          price: 550,
+        },
+        {
+          id: "chocolate-4",
+          name: "Chocolate Roll",
+          pieces: "4 PCS",
+          price: 390,
+        },
+        {
+          id: "mix-caramel-nuts-4",
+          name: "Mix Caramel Nuts Roll",
+          pieces: "4 PCS",
+          price: 405,
+        },
+        {
+          id: "mix-caramel-pecan-4",
+          name: "Mix Caramel Pecan Roll",
+          pieces: "4 PCS",
+          price: 460,
+        },
+        {
+          id: "mix-chocolate-4",
+          name: "Mix Chocolate Roll",
+          pieces: "4 PCS",
+          price: 380,
+        },
+      ],
+      mini: [
+        {
+          id: "mini-classic-9",
+          name: "Mini Classic Roll",
+          pieces: "9 PCS",
+          price: 400,
+        },
+        {
+          id: "mini-chocolate-9",
+          name: "Mini Chocolate Roll",
+          pieces: "9 PCS",
+          price: 480,
+        },
+        {
+          id: "mini-caramel-nuts-9",
+          name: "Mini Caramel Nuts Roll",
+          pieces: "9 PCS",
+          price: 500,
+        },
+        {
+          id: "mini-pecan-9",
+          name: "Mini Pecan Roll",
+          pieces: "9 PCS",
+          price: 600,
+        },
+        {
+          id: "mini-mix-9",
+          name: "Mini Mix Roll",
+          pieces: "9 PCS",
+          price: 490,
+        },
+      ],
+    },
     type: "peace",
-    description:
-      "World-famous cinnamon rolls with signature cream cheese frosting that melts in your mouth",
     image:
       "https://res.cloudinary.com/dk1q6kpkk/image/upload/v1771372234/cinnabon_ezwuvx.png",
     component: Cinnabon,
@@ -49,8 +120,6 @@ const services = [
     title: "Ramadan Items",
     price: 20,
     type: "peace",
-    description:
-      "Traditional and contemporary treats specially crafted for the holy month",
     image:
       "https://res.cloudinary.com/dk1q6kpkk/image/upload/v1771372227/ramadan_m3ulfg.png",
     component: Ramadan,
@@ -129,6 +198,7 @@ const services = [
     avilability: false,
   },
 ];
+
 function Card() {
   const { id } = useParams();
 
@@ -136,11 +206,8 @@ function Card() {
     <>
       {services.map((item) =>
         item.id == id && item.avilability == true ? (
-          <div className="bg-[#fff9ed]">
-            <section
-              key={item.id}
-              className="grid grid-cols-1 lg:grid-cols-2 gap-10 p-6 lg:p-10  max-w-[90%] mx-auto min-h-[80vh] items-center"
-            >
+          <div className="bg-[#fff9ed]" key={item.id}>
+            <section className="grid grid-cols-1 lg:grid-cols-2 gap-10 p-6 lg:p-10 max-w-[90%] mx-auto min-h-[80vh] items-center">
               <img
                 src={item.image}
                 alt={item.title}
@@ -160,12 +227,15 @@ function Card() {
                   </p>
                 </div>
 
-                <item.component FLAVORS={item.FLAVORS} />
+                <item.component
+                  FLAVORS={item.FLAVORS}
+                  PRODUCTS={item.PRODUCTS}
+                />
               </div>
             </section>
           </div>
         ) : item.id == id && item.avilability == false ? (
-          <Unavilable />
+          <Unavilable key={item.id} />
         ) : null,
       )}
     </>
