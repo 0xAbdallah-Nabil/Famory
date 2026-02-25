@@ -122,6 +122,66 @@ const services = [
     type: "peace",
     image:
       "https://res.cloudinary.com/dk1q6kpkk/image/upload/v1771372227/ramadan_m3ulfg.png",
+    ramadanProducts: {
+      basbousa: [
+        {
+          id: "cream-pistachio",
+          name: "Cream & Pistachio Basbousa",
+          serves: "Serves 5–6",
+          description:
+            "Soft basbousa topped with rich cream and premium pistachios.",
+          price: 300,
+        },
+        {
+          id: "date-hazelnut",
+          name: "Date & Hazelnut Basbousa",
+          serves: "Serves 5–6",
+          description:
+            "Moist basbousa filled with caramelized dates and crunchy hazelnuts.",
+          price: 330,
+        },
+        {
+          id: "mixed-tray",
+          name: "Mixed Tray (Half Date & Half Cream)",
+          serves: "Serves 5–6",
+          description:
+            "Half Date & Hazelnut, half Cream & Pistachio — the perfect balance.",
+          price: 310,
+        },
+      ],
+      creamyPuffs: [
+        {
+          id: "premium-pistachio",
+          name: "Premium Pistachio Kunafa",
+          price: 70,
+        },
+        {
+          id: "kinder-cream",
+          name: "Kinder Cream Kunafa",
+          price: 65,
+        },
+        {
+          id: "lotus-crunch",
+          name: "Lotus Crunch Kunafa",
+          price: 60,
+        },
+        {
+          id: "apricot-qamar",
+          name: "Apricot Qamar El-Din",
+          price: 62,
+        },
+        {
+          id: "caramelized-date",
+          name: "Caramelized Date Kunafa",
+          price: 58,
+        },
+        {
+          id: "ramadan-sobya",
+          name: "Ramadan Sobya Delight",
+          price: 55,
+        },
+      ],
+    },
     component: Ramadan,
     avilability: true,
   },
@@ -216,7 +276,7 @@ function Card() {
                   loading="lazy"
                 />
               </div>
-              <div className="flex flex-col justify-center items-center gap-5 p-6 rounded-md shadow-md w-full">
+              <div className="flex flex-col justify-center items-center gap-5  rounded-md shadow-md w-full">
                 <div className="flex justify-center items-center mb-4 w-full">
                   <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-center smooth-sans">
                     {item.title}
@@ -232,6 +292,7 @@ function Card() {
                 <item.component
                   FLAVORS={item.FLAVORS}
                   PRODUCTS={item.PRODUCTS}
+                  ramadanProducts={item.ramadanProducts}
                 />
               </div>
             </section>

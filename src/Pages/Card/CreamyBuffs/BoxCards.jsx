@@ -102,7 +102,7 @@ export default function BoxCard({
       </div>
 
       {/* Puff slots */}
-      <div className="p-4 flex flex-col gap-2">
+      <div className=" flex flex-col gap-2">
         <div className="font-cormorant text-xs text-[#b09a85] mb-1 tracking-widest uppercase">
           Select flavor for each puff
         </div>

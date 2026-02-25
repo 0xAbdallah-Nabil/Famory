@@ -2,70 +2,11 @@ import React, { useState } from "react";
 import useCart from "../../../hooks/useCart.js";
 import CreamyPuffsForm from "../CreamyBuffs/CreamyBuffs.jsx";
 import Swal from "sweetalert2";
-export const Ramadan = () => {
+export default function Ramadan  ({ramadanProducts})  {
   const { handleAddToCart, openCart } = useCart();
   const [selectedCategory, setSelectedCategory] = useState("basbousa");
   const [quantities, setQuantities] = useState({});
-  const ramadanProducts = {
-    basbousa: [
-      {
-        id: "cream-pistachio",
-        name: "Cream & Pistachio Basbousa",
-        serves: "Serves 5–6",
-        description:
-          "Soft basbousa topped with rich cream and premium pistachios.",
-        price: 300,
-      },
-      {
-        id: "date-hazelnut",
-        name: "Date & Hazelnut Basbousa",
-        serves: "Serves 5–6",
-        description:
-          "Moist basbousa filled with caramelized dates and crunchy hazelnuts.",
-        price: 330,
-      },
-      {
-        id: "mixed-tray",
-        name: "Mixed Tray (Half Date & Half Cream)",
-        serves: "Serves 5–6",
-        description:
-          "Half Date & Hazelnut, half Cream & Pistachio — the perfect balance.",
-        price: 310,
-      },
-    ],
-    creamyPuffs: [
-      {
-        id: "premium-pistachio",
-        name: "Premium Pistachio Kunafa",
-        price: 70,
-      },
-      {
-        id: "kinder-cream",
-        name: "Kinder Cream Kunafa",
-        price: 65,
-      },
-      {
-        id: "lotus-crunch",
-        name: "Lotus Crunch Kunafa",
-        price: 60,
-      },
-      {
-        id: "apricot-qamar",
-        name: "Apricot Qamar El-Din",
-        price: 62,
-      },
-      {
-        id: "caramelized-date",
-        name: "Caramelized Date Kunafa",
-        price: 58,
-      },
-      {
-        id: "ramadan-sobya",
-        name: "Ramadan Sobya Delight",
-        price: 55,
-      },
-    ],
-  };
+
 
   const handleQuantityChange = (productId, value) => {
     const numValue = parseInt(value) || 0;
@@ -257,4 +198,3 @@ export const Ramadan = () => {
   );
 };
 
-export default Ramadan;
