@@ -183,24 +183,21 @@ export const Ramadan = () => {
                 className="bg-white rounded-2xl p-6 shadow-md hover:shadow-xl transition-all duration-300 border-2 border-[#e60077] hover:border-[#e60077]"
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
-                <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
-                  <div className="flex-1">
-                    <h4 className="text-xl font-bold text-black mb-2">
-                      {product.name}
-                    </h4>
-                    <p className="text-black mb-2">{product.description}</p>
-                    <div className="flex items-center gap-3 flex-wrap">
-                      <span className="text-sm text-white font-semibold bg-[#e60077] bg-opacity-20 px-3 py-1 rounded-full">
-                        {product.serves}
-                      </span>
-                      <span className="text-2xl font-bold text-black">
+                <div className="flex flex-col  justify-between w-full gap-4">
+                  <div className="flex flex-col">
+                    <div className="flex justify-between items-center">
+                      <h4 className="text-xl font-bold text-black mb-2">
+                        {product.name} "{product.serves}"
+                      </h4>
+                      <div className="text-xl font-bold text-black">
                         {product.price} EGP
-                      </span>
+                      </div>
                     </div>
+                    <p className="text-black mb-2">{product.description}</p>
                   </div>
 
                   {/* Quantity Controls */}
-                  <div className="flex items-center gap-3">
+                  <div className="flex items-center gap-3 justify-center w-full">
                     <button
                       type="button"
                       onClick={() => decrementQuantity(product.id)}
@@ -224,17 +221,17 @@ export const Ramadan = () => {
                     >
                       +
                     </button>
-                    {quantities[product.id] > 0 && (
-                      <div className="ml-4 text-right">
-                        <p className="text-sm text-black font-semibold">
-                          Subtotal
-                        </p>
-                        <p className="text-lg font-bold text-[#e60077]">
-                          {quantities[product.id] * product.price} EGP
-                        </p>
-                      </div>
-                    )}
                   </div>
+                  {quantities[product.id] > 0 && (
+                    <div className="w-full flex justify-center items-center gap-2 mt-3">
+                      <p className="text-sm text-black font-semibold">
+                        Subtotal
+                      </p>
+                      <p className="text-lg font-bold text-[#e60077]">
+                        {quantities[product.id] * product.price} EGP
+                      </p>
+                    </div>
+                  )}
                 </div>
               </div>
             ))}

@@ -188,7 +188,7 @@ const Cinnabon = () => {
               className="sm:w-[80%] w-full bg-white rounded-2xl p-5 shadow-md hover:shadow-xl transition-all duration-300 border-2 border-amber-100 hover:border-[#e60077]"
               style={{ animationDelay: `${index * 0.1}s` }}
             >
-              <div className="flex justify-between items-start mb-3">
+              <div className="flex justify-evenly items-center mb-3">
                 <div className="flex flex-row items-center gap-3 justify-between w-full">
                   <h4 className="text-lg font-bold text-black mb-1">
                     {product.name} : {product.pieces}
@@ -203,7 +203,7 @@ const Cinnabon = () => {
               </div>
 
               {/* Quantity Controls */}
-              <div className="flex items-center gap-3 mt-4 ">
+              <div className="flex items-center justify-center gap-3 mt-4 ">
                 <button
                   type="button"
                   onClick={() => decrementQuantity(product.id)}
@@ -227,17 +227,17 @@ const Cinnabon = () => {
                 >
                   +
                 </button>
-                {quantities[product.id] > 0 && (
-                  <div className="ml-auto text-right flex jsustify-center items-center  gap-2">
-                    <p className="text-sm text-[#e60077] font-semibold">
-                      Subtotal
-                    </p>
-                    <p className="text-lg font-bold text-[#e60077]">
-                      {quantities[product.id] * product.price} EGP
-                    </p>
-                  </div>
-                )}
               </div>
+              {quantities[product.id] > 0 && (
+                <div className="flex justify-center items-center gap-2 w-full">
+                  <p className="text-sm text-[#e60077] font-semibold">
+                    Subtotal
+                  </p>
+                  <p className="text-lg font-bold text-[#e60077]">
+                    {quantities[product.id] * product.price} EGP
+                  </p>
+                </div>
+              )}
             </div>
           ))}
         </div>

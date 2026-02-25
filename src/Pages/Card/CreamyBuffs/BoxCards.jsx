@@ -37,7 +37,7 @@ export default function BoxCard({
   return (
     <div className="bg-white rounded-2xl border border-[#e8ddd0] overflow-hidden shadow-lg shadow-[rgba(181,129,58,0.07)]">
       {/* Box Header */}
-      <div className="bg-gradient-to-br from-[#f9f0e3] to-[#fdf8f2] px-0 py-4 flex items-center justify-between border-b border-[#f0e6d3]">
+      <div className="bg-gradient-to-br from-[#f9f0e3] to-[#fdf8f2] px-4 py-4 flex items-center justify-between border-b border-[#f0e6d3]">
         <div className="flex items-center gap-2.5">
           <div>
             <div className="font-cormorant font-bold text-lg text-[#3d2b1a] tracking-wide">
@@ -102,7 +102,7 @@ export default function BoxCard({
       </div>
 
       {/* Puff slots */}
-      <div className="p-0 flex flex-col gap-2">
+      <div className="p-4 flex flex-col gap-2">
         <div className="font-cormorant text-xs text-[#b09a85] mb-1 tracking-widest uppercase">
           Select flavor for each puff
         </div>

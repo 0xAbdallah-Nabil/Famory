@@ -63,11 +63,11 @@ export default function CreamyPuffsForm({ FLAVORS }) {
   };
 
   return (
-    <div className=" w-[90%] font-cormorant">
-      <div className="mx-auto">
+    <div className=" w-full flex justify-center items-center  font-cormoran">
+      <div className=" w-[90%] ">
         <form onSubmit={handleSubmit}>
           {/* Boxes */}
-          <div className="flex flex-col gap-4 mb-5">
+          <div className="flex flex-col gap-4 mb-5 ">
             {boxes.map((box, i) => (
               <BoxCard
                 key={box.id}
