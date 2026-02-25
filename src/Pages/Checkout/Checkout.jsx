@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import useCart from "../../hooks/useCart.js";
 import handleCheckout from "../../hooks/useDB.js";
+import Swal from "sweetalert2";
 export default function CheckoutPage() {
   // Sample cart items - in real app, this would come from props or context
   const { cart } = useCart();
@@ -63,7 +64,11 @@ export default function CheckoutPage() {
 
     if (validateForm()) {
       handleCheckout(cartItems, formData);
-      alert("Order placed successfully!");
+      Swal.fire({
+        title: "Success!",
+        text: "Your order has been placed successfully!",
+        icon: "success",
+      });
     }
   };
 

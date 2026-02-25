@@ -1,7 +1,7 @@
 import { useState } from "react";
 import BoxCard from "./BoxCards.jsx";
 import useCart from "../../../hooks/useCart.js";
-
+import Swal from "sweetalert2";
 const createBox = () => ({
   id: Date.now() + Math.random(),
   puffs: ["", "", ""],
@@ -25,7 +25,14 @@ export default function CreamyPuffsForm({ FLAVORS }) {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!allComplete) return;
-
+    if (boxes.length === 0) {
+      Swal.fire({
+        title: "No items selected",
+        text: "Please select at least one item to add to cart.",
+        icon: "warning",
+      });
+      return;
+    }
     boxes.forEach((box) => {
       // Count each flavour and calculate total price
       const flavorCounts = box.puffs.reduce((acc, flavorName) => {

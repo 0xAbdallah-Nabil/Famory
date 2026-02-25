@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import useCart from "../../../hooks/useCart.js";
-
+import Swal from "sweetalert2";
 const Cinnabon = () => {
   const { handleAddToCart, openCart } = useCart();
   const [selectedCategory, setSelectedCategory] = useState("classic");
@@ -121,7 +121,11 @@ const Cinnabon = () => {
     e.preventDefault();
     const cartItems = getCartItems();
     if (cartItems.length === 0) {
-      alert("Please select at least one product!");
+      Swal.fire({
+        title: "No items selected",
+        text: "Please select at least one item to add to cart.",
+        icon: "warning",
+      });
       return;
     }
     // Add each selected item to the cart
