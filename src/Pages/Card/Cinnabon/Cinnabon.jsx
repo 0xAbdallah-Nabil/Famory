@@ -1,6 +1,8 @@
 import React, { useState } from "react";
+import useCart from "../../../hooks/useCart.js";
 
 const Cinnabon = () => {
+  const { handleAddToCart, openCart } = useCart();
   const [selectedCategory, setSelectedCategory] = useState("classic");
   const [quantities, setQuantities] = useState({});
   const [showCart, setShowCart] = useState(false);
@@ -104,6 +106,8 @@ const Cinnabon = () => {
       .filter((product) => quantities[product.id] > 0)
       .map((product) => ({
         ...product,
+        id: product.id,
+        name: product.name,
         quantity: quantities[product.id],
         total: quantities[product.id] * product.price,
       }));
@@ -120,8 +124,14 @@ const Cinnabon = () => {
       alert("Please select at least one product!");
       return;
     }
-    console.log("Order submitted:", cartItems);
-    // Add your submission logic here (e.g., API call)
+    // Add each selected item to the cart
+    cartItems.forEach((item) => {
+      handleAddToCart(item, item.quantity);
+    });
+    openCart();
+    // Clear form after submit
+    setQuantities({});
+    setSelectedCategory("classic");
   };
 
   return (
@@ -167,31 +177,29 @@ const Cinnabon = () => {
         </div>
 
         {/* Products Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div className="grid grid-cols-1 gap-4  justify-items-center">
           {cinnamonProducts[selectedCategory].map((product, index) => (
             <div
               key={product.id}
-              className="bg-white rounded-2xl p-5 shadow-md hover:shadow-xl transition-all duration-300 border-2 border-amber-100 hover:border-[#e60077]"
+              className="sm:w-[80%] w-full bg-white rounded-2xl p-5 shadow-md hover:shadow-xl transition-all duration-300 border-2 border-amber-100 hover:border-[#e60077]"
               style={{ animationDelay: `${index * 0.1}s` }}
             >
               <div className="flex justify-between items-start mb-3">
-                <div className="flex-1">
+                <div className="flex flex-row items-center gap-3 justify-between w-full">
                   <h4 className="text-lg font-bold text-black mb-1">
-                    {product.name}
+                    {product.name} : {product.pieces}
                   </h4>
-                  <div className="flex items-center gap-2">
-                    <span className="text-sm text-white font-semibold bg-[#e60077] bg-opacity-10 px-3 py-1 rounded-full">
-                      {product.pieces}
-                    </span>
-                    <span className="text-xl font-bold text-black">
+
+                  <div className="flex gap-4">
+                    <div className="text-xl font-bold text-black">
                       {product.price} EGP
-                    </span>
+                    </div>
                   </div>
                 </div>
               </div>
 
               {/* Quantity Controls */}
-              <div className="flex items-center gap-3 mt-4">
+              <div className="flex items-center gap-3 mt-4 ">
                 <button
                   type="button"
                   onClick={() => decrementQuantity(product.id)}
@@ -216,7 +224,7 @@ const Cinnabon = () => {
                   +
                 </button>
                 {quantities[product.id] > 0 && (
-                  <div className="ml-auto text-right">
+                  <div className="ml-auto text-right flex jsustify-center items-center  gap-2">
                     <p className="text-sm text-[#e60077] font-semibold">
                       Subtotal
                     </p>

@@ -26,7 +26,7 @@ export default function CreamyPuffsForm({ FLAVORS }) {
     e.preventDefault();
     if (!allComplete) return;
 
-    boxes.forEach((box, i) => {
+    boxes.forEach((box) => {
       // Count each flavour and calculate total price
       const flavorCounts = box.puffs.reduce((acc, flavorName) => {
         if (!flavorName) return acc;
@@ -40,8 +40,10 @@ export default function CreamyPuffsForm({ FLAVORS }) {
         const flavorObj = FLAVORS.find((f) => f.name === flavorName);
         return sum + (flavorObj ? flavorObj.price : 0);
       }, 0);
+      // Use a deterministic id based on flavors and count
+      const id = `creamy-puffs-box-${box.puffs.join("-")}-${box.puffs.length}`;
       const item = {
-        id: `creamy-puffs-box-${i}-${Date.now()}`,
+        id,
         name: `Creamy Puffs Box (${box.puffs.length} puffs)`,
         details,
         price,
@@ -54,7 +56,7 @@ export default function CreamyPuffsForm({ FLAVORS }) {
   };
 
   return (
-    <div className="min-h-screen w-[90%] font-cormorant">
+    <div className=" w-[90%] font-cormorant">
       <div className="mx-auto">
         <form onSubmit={handleSubmit}>
           {/* Boxes */}

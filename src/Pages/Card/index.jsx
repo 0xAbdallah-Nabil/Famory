@@ -207,13 +207,15 @@ function Card() {
       {services.map((item) =>
         item.id == id && item.avilability == true ? (
           <div className="bg-[#fff9ed]" key={item.id}>
-            <section className="grid grid-cols-1 lg:grid-cols-2 gap-10 p-6 lg:p-10 max-w-[90%] mx-auto min-h-[80vh] items-center">
-              <img
-                src={item.image}
-                alt={item.title}
-                className="w-full h-96 object-cover rounded-3xl mb-6"
-                loading="lazy"
-              />
+            <section className="  grid grid-cols-1 lg:grid-cols-2 gap-10 p-6 lg:p-10 max-w-[90%] mx-auto min-h-[80vh] items-center">
+              <div className=" relative  h-full">
+                <img
+                  src={item.image}
+                  alt={item.title}
+                  className="w-full lg:absolute lg:top-0 lg:left-0 object-cover rounded-3xl mb-6 h-96"
+                  loading="lazy"
+                />
+              </div>
               <div className="flex flex-col justify-center items-center gap-5 p-6 rounded-md shadow-md w-full">
                 <div className="flex justify-center items-center mb-4 w-full">
                   <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-center smooth-sans">

@@ -364,9 +364,7 @@ export default function CheckoutPage() {
                             {item.details}
                           </span>
                         ) : (
-                          <span className="text-xs text-[#b09a85]">
-                            No details
-                          </span>
+                          <span className="text-[16px] font-bold text-[#b5813a] font-cormorant">{`(x${item.quantity}) - ${item.name} `}</span>
                         )}
                       </div>
 
