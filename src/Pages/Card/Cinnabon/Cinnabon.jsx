@@ -1,80 +1,12 @@
 import React, { useState } from "react";
 import useCart from "../../../hooks/useCart.js";
 import Swal from "sweetalert2";
-const Cinnabon = () => {
+const Cinnabon = ({ PRODUCTS }) => {
+  const cinnamonProducts = PRODUCTS || { classic: [], mini: [] };
   const { handleAddToCart, openCart } = useCart();
   const [selectedCategory, setSelectedCategory] = useState("classic");
   const [quantities, setQuantities] = useState({});
   const [showCart, setShowCart] = useState(false);
-
-  const cinnamonProducts = {
-    classic: [
-      { id: "classic-4", name: "Classic Roll", pieces: "4 PCS", price: 350 },
-      {
-        id: "caramel-nuts-4",
-        name: "Caramel Nuts Roll",
-        pieces: "4 PCS",
-        price: 430,
-      },
-      {
-        id: "caramel-pecan-4",
-        name: "Caramel Pecan Roll",
-        pieces: "4 PCS",
-        price: 550,
-      },
-      {
-        id: "chocolate-4",
-        name: "Chocolate Roll",
-        pieces: "4 PCS",
-        price: 390,
-      },
-      {
-        id: "mix-caramel-nuts-4",
-        name: "Mix Caramel Nuts Roll",
-        pieces: "4 PCS",
-        price: 405,
-      },
-      {
-        id: "mix-caramel-pecan-4",
-        name: "Mix Caramel Pecan Roll",
-        pieces: "4 PCS",
-        price: 460,
-      },
-      {
-        id: "mix-chocolate-4",
-        name: "Mix Chocolate Roll",
-        pieces: "4 PCS",
-        price: 380,
-      },
-    ],
-    mini: [
-      {
-        id: "mini-classic-9",
-        name: "Mini Classic Roll",
-        pieces: "9 PCS",
-        price: 400,
-      },
-      {
-        id: "mini-chocolate-9",
-        name: "Mini Chocolate Roll",
-        pieces: "9 PCS",
-        price: 480,
-      },
-      {
-        id: "mini-caramel-nuts-9",
-        name: "Mini Caramel Nuts Roll",
-        pieces: "9 PCS",
-        price: 500,
-      },
-      {
-        id: "mini-pecan-9",
-        name: "Mini Pecan Roll",
-        pieces: "9 PCS",
-        price: 600,
-      },
-      { id: "mini-mix-9", name: "Mini Mix Roll", pieces: "9 PCS", price: 490 },
-    ],
-  };
 
   const handleQuantityChange = (productId, value) => {
     const numValue = parseInt(value) || 0;

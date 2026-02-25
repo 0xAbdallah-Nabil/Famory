@@ -1,82 +1,9 @@
 import { Link } from "react-router-dom";
 import "./style.css";
-export default function OurServices() {
-  const services = [
-    {
-      id: 1,
-      title: "Creamy Puffs",
-      description:
-        "Delicate pastries filled with rich, velvety cream in a variety of exquisite flavors",
-      image:
-        "https://res.cloudinary.com/dk1q6kpkk/image/upload/v1771372784/creamy_buffs_pdq45t.jpg",
-      to: "/our-products",
-    },
-    {
-      id: 2,
-      title: "Cinnabon",
-      description:
-        "World-famous cinnamon rolls with signature cream cheese frosting that melts in your mouth",
-      image:
-        "https://res.cloudinary.com/dk1q6kpkk/image/upload/v1771372234/cinnabon_ezwuvx.png",
-    },
-    {
-      id: 3,
-      title: "Ramadan Items",
-      description:
-        "Traditional and contemporary treats specially crafted for the holy month",
-      image:
-        "https://res.cloudinary.com/dk1q6kpkk/image/upload/v1771372227/ramadan_m3ulfg.png",
-    },
-    {
-      id: 4,
-      title: "Mini Creamy Puffs",
-      description:
-        "Mini Creamy Puff – 18 pcs Mini puffs filled with custard and assorted flavors",
-      image:
-        "https://res.cloudinary.com/dk1q6kpkk/image/upload/v1771373126/mini_creamy_buffs_jpdlg1.png",
-    },
-    {
-      id: 5,
-      title: "Cheesecake",
-      description:
-        "Irresistible cheesecake with a buttery crust and creamy filling, baked to perfection",
-      image:
-        "https://res.cloudinary.com/dk1q6kpkk/image/upload/v1771372573/cheesecake_v4wl0o.jpg",
-    },
-    {
-      id: 6,
-      title: "Christmas Bundles",
-      description:
-        "Festive holiday bundles filled with seasonal treats to spread joy and sweetness",
-      image:
-        "https://res.cloudinary.com/dk1q6kpkk/image/upload/v1771372581/christmas_creamy_buffs_zkleqa.jpg",
-    },
-    {
-      id: 7,
-      title: "Muffin",
-      description:
-        "Soft, fluffy muffins baked to perfection in a variety of delightful flavors",
-      image:
-        "https://res.cloudinary.com/dk1q6kpkk/image/upload/v1771373600/muffin2_tcffgu.jpg",
-    },
-    {
-      id: 8,
-      title: "Occasional Cards",
-      description:
-        "Beautifully crafted cards to accompany your sweet gifts for any special occasion",
-      image:
-        "https://res.cloudinary.com/dk1q6kpkk/image/upload/v1771374442/gift_card_2_ywdgf1.jpg",
-    },
-    {
-      id: 9,
-      title: "Customized Orders & Events",
-      description:
-        "Personalized treats tailored to your preferences, perfect for gifting or any special occasion",
-      image:
-        "https://res.cloudinary.com/dk1q6kpkk/image/upload/v1771374935/events_and_orders_dvlkpz.jpg",
-    },
-  ];
+import useFetch from "../../hooks/useFetch.js";
 
+export default function OurServices() {
+  const { products } = useFetch("services.json");
   return (
     <div className="min-h-screen bg-gradient-to-br from-amber-50 via-orange-50 to-rose-50">
       {/* Header Section */}
@@ -97,11 +24,11 @@ export default function OurServices() {
 
         {/* Services Grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-7xl mx-auto">
-          {services.map((service, index) => (
+          {products.map((service, index) => (
             <Link
               to={`/our-services/${service.id}`}
               key={service.id}
-              className="group relative"
+              className={`group relative ${service.avilability ? "" : " opacity-50 pointer-events-none"}`}
               style={{
                 animation: `fadeInUp 0.6s ease-out ${index * 0.2}s both`,
               }}
@@ -134,15 +61,17 @@ export default function OurServices() {
 
                 {/* Button */}
                 <button
-                  className="
+                  className={`
                   w-full py-3 px-6 rounded-xl
-                  bg-[#e60077]
-                  text-white font-semibold
+                  ${service.avilability ? "bg-[#e60077] hover:bg-[#c80060] shadow-lg text-white" : "bg-[#e8ddd0] text-black1 cursor-not-allowed"}
+                   font-semibold
                   transform transition-all duration-300
                   hover:scale-105
                   hover:shadow-lg
                   focus:outline-none focus:ring-2 focus:ring-[#e60077] focus:ring-offset-2
-                "
+                  
+                `}
+                  disabled={!service.avilability}
                 >
                   Explore Menu
                 </button>
