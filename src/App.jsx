@@ -1,5 +1,10 @@
 import "./App.css";
-import { HashRouter as Router, Routes, Route } from "react-router-dom";
+import {
+  HashRouter as Router,
+  Routes,
+  Route,
+  Navigate,
+} from "react-router-dom";
 import Home from "./Pages/Home/index.jsx";
 import Header from "./components/Header/index.jsx";
 import Footer from "./components/Footer/index.jsx";
@@ -16,11 +21,10 @@ function App() {
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="*" element={<Error />} />
+        <Route path="*" element={<Navigate to="/" replace />} />
         <Route path="/checkout" element={<Checkout />} />
         <Route path="/our-services" element={<OurServices />} />
         <Route path="/our-services/:id" element={<Card />} />
-
       </Routes>
       <Footer />
     </Router>

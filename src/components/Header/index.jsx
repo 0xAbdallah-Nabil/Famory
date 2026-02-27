@@ -15,7 +15,6 @@ import MobileMenu from "./MobileMenu.jsx";
 import Button from "./Button.jsx";
 import ListItem from "./ListItem.jsx";
 
-
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -82,7 +81,7 @@ export default function Header() {
       {isSearchOpen && (
         <Search isSearchOpen={isSearchOpen} setIsSearchOpen={setIsSearchOpen} />
       )}
-      <MobileMenu isOpen={isMenuOpen} />
+      <MobileMenu isOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} />
       {isCartOpen && <Cart />}
     </>
   );

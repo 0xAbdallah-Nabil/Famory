@@ -4,6 +4,7 @@ import useFetch from "../../hooks/useFetch.js";
 
 export default function OurServices() {
   const { products } = useFetch("services.json");
+  const services = products.filter((product) => product.avilability === true);
   return (
     <div className="min-h-screen bg-gradient-to-br from-amber-50 via-orange-50 to-rose-50">
       {/* Header Section */}
@@ -24,7 +25,7 @@ export default function OurServices() {
 
         {/* Services Grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-7xl mx-auto">
-          {products.map((service, index) => (
+          {services.map((service, index) => (
             <Link
               to={`/our-services/${service.id}`}
               key={service.id}

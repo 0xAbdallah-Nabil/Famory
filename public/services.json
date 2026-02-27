@@ -102,7 +102,7 @@
     },
     "type": "peace",
     "image": "https://res.cloudinary.com/dk1q6kpkk/image/upload/v1771372234/cinnabon_ezwuvx.png",
-
+    "description": "Soft, sweet rolls swirled with cinnamon and topped with creamy frosting, available in classic and mini sizes",
     "avilability": true
   },
   {
@@ -110,6 +110,7 @@
     "title": "Ramadan Items",
     "price": 20,
     "type": "peace",
+    "description": "Specially crafted treats to celebrate the spirit of Ramadan, including traditional and innovative delights",
     "image": "https://res.cloudinary.com/dk1q6kpkk/image/upload/v1771372227/ramadan_m3ulfg.png",
     "ramadanProducts": {
       "basbousa": [
@@ -178,7 +179,6 @@
     "type": "peace",
     "description": "Mini Creamy Puff – 18 pcs Mini puffs filled with custard and assorted flavors",
     "image": "https://res.cloudinary.com/dk1q6kpkk/image/upload/v1771373126/mini_creamy_buffs_jpdlg1.png",
-
     "avilability": true
   },
   {
@@ -189,7 +189,7 @@
     "description": "Rich and creamy cheesecakes crafted with the finest ingredients in a variety of flavors",
     "image": "https://res.cloudinary.com/dk1q6kpkk/image/upload/v1771372573/cheesecake_v4wl0o.jpg",
 
-    "avilability": true
+    "avilability": false
   },
   {
     "id": 6,
@@ -199,7 +199,7 @@
     "description": "Festive holiday bundles filled with seasonal treats to spread joy and sweetness",
     "image": "https://res.cloudinary.com/dk1q6kpkk/image/upload/v1771372581/christmas_creamy_buffs_zkleqa.jpg",
 
-    "avilability": true
+    "avilability": false
   },
   {
     "id": 7,
@@ -219,7 +219,7 @@
     "description": "Beautifully crafted cards to accompany your sweet gifts for any special occasion",
     "image": "https://res.cloudinary.com/dk1q6kpkk/image/upload/v1771374442/gift_card_2_ywdgf1.jpg",
 
-    "avilability": true
+    "avilability": false
   },
   {
     "id": 9,
