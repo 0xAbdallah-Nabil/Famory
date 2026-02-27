@@ -64,7 +64,7 @@ export default function CreamyPuffsForm({ FLAVORS }) {
 
   return (
     <div className=" w-full flex justify-center items-center  font-cormoran">
-      <div className=" w-[90%] ">
+      <div className=" w-full ">
         <form onSubmit={handleSubmit}>
           {/* Boxes */}
           <div className="flex flex-col gap-4 mb-5 ">
@@ -107,7 +107,7 @@ export default function CreamyPuffsForm({ FLAVORS }) {
                 : "bg-[#e8ddd0] text-[#b09a85] cursor-not-allowed"
             }`}
           >
-            Add to Cart — {boxes.length} box{boxes.length > 1 ? "es" : ""},{" "}
+            Place Order — {boxes.length} box{boxes.length > 1 ? "es" : ""},{" "}
             {totalPuffs} puffs
           </button>
         </form>

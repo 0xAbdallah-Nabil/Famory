@@ -6,7 +6,6 @@ const Cinnabon = ({ PRODUCTS }) => {
   const { handleAddToCart, openCart } = useCart();
   const [selectedCategory, setSelectedCategory] = useState("classic");
   const [quantities, setQuantities] = useState({});
-  const [showCart, setShowCart] = useState(false);
 
   const handleQuantityChange = (productId, value) => {
     const numValue = parseInt(value) || 0;
@@ -48,6 +47,8 @@ const Cinnabon = ({ PRODUCTS }) => {
   const getTotalPrice = () => {
     return getCartItems().reduce((sum, item) => sum + item.total, 0);
   };
+
+  const hasItems = getCartItems().length > 0;
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -117,7 +118,7 @@ const Cinnabon = ({ PRODUCTS }) => {
           {cinnamonProducts[selectedCategory].map((product, index) => (
             <div
               key={product.id}
-              className="sm:w-[80%] w-full bg-white rounded-2xl p-5 shadow-md hover:shadow-xl transition-all duration-300 border-2 border-amber-100 hover:border-[#e60077]"
+              className="sm:w-[80%] w-full bg-white rounded-2xl p-5 shadow-md hover:shadow-xl transition-all duration-300 border-2 border-[#e60077] hover:border-[#e60077]"
               style={{ animationDelay: `${index * 0.1}s` }}
             >
               <div className="flex justify-evenly items-center mb-3">
@@ -150,7 +151,7 @@ const Cinnabon = ({ PRODUCTS }) => {
                   onChange={(e) =>
                     handleQuantityChange(product.id, e.target.value)
                   }
-                  className="w-20 h-10 text-center text-lg font-bold text-amber-900 border-2 border-[#e60077] rounded-xl focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-transparent"
+                  className="w-20 h-10 text-center text-lg font-bold text-amber-900 border-2 border-[#e60077] rounded-xl focus:outline-none focus:ring-2 focus:ring-[#e60077] focus:border-transparent"
                 />
                 <button
                   type="button"
@@ -174,56 +175,16 @@ const Cinnabon = ({ PRODUCTS }) => {
           ))}
         </div>
 
-        {/* Cart Summary */}
-        {getCartItems().length > 0 && (
-          <div className="mt-8 bg-gradient-to-br from-amber-50 to-orange-50 rounded-2xl p-6 border-2 border-amber-200">
-            <div className="flex justify-between items-center mb-4">
-              <h3 className="text-2xl font-bold text-[#e60077]">
-                Order Summary
-              </h3>
-              <button
-                type="button"
-                onClick={() => setShowCart(!showCart)}
-                className="text-[#e60077] hover:text-[#c80060] font-semibold"
-              >
-                {showCart ? "Hide Details ▲" : "Show Details ▼"}
-              </button>
-            </div>
-
-            {showCart && (
-              <div className="space-y-2 mb-4">
-                {getCartItems().map((item) => (
-                  <div
-                    key={item.id}
-                    className="flex justify-between items-center py-2 border-b border-[#e60077] border-opacity-20"
-                  >
-                    <div>
-                      <p className="font-semibold text-amber-900">
-                        {item.name}
-                      </p>
-                      <p className="text-sm text-[#e60077]">
-                        {item.quantity} x {item.price} EGP
-                      </p>
-                    </div>
-                    <p className="font-bold text-[#e60077]">{item.total} EGP</p>
-                  </div>
-                ))}
-              </div>
-            )}
-
-            <div className="flex justify-between items-center pt-4 border-t-2 border-[#e60077]">
-              <span className="text-2xl font-bold text-[#e60077]">Total:</span>
-              <span className="text-3xl font-bold text-[#e60077]">
-                {getTotalPrice()} EGP
-              </span>
-            </div>
-          </div>
-        )}
-
         {/* Submit Button */}
         <button
           type="submit"
-          className="w-full py-4 bg-[#e60077] text-white text-xl font-bold rounded-2xl hover:bg-[#c80060] transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-[1.02] active:scale-[0.98]"
+          disabled={!hasItems}
+          className={`w-full py-4 text-xl font-bold rounded-2xl transition-all duration-300 shadow-lg transform
+            ${
+              hasItems
+                ? "bg-[#e60077] text-white hover:bg-[#c80060] hover:shadow-xl hover:scale-[1.02] active:scale-[0.98] cursor-pointer"
+                : "bg-[#e8ddd0] text-[#b09a85] cursor-not-allowed"
+            }`}
         >
           🛒 Place Order - {getTotalPrice()} EGP
         </button>

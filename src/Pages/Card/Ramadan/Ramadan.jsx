@@ -2,11 +2,10 @@ import React, { useState } from "react";
 import useCart from "../../../hooks/useCart.js";
 import CreamyPuffsForm from "../CreamyBuffs/CreamyBuffs.jsx";
 import Swal from "sweetalert2";
-export default function Ramadan  ({ramadanProducts})  {
+export default function Ramadan({ ramadanProducts }) {
   const { handleAddToCart, openCart } = useCart();
   const [selectedCategory, setSelectedCategory] = useState("basbousa");
   const [quantities, setQuantities] = useState({});
-
 
   const handleQuantityChange = (productId, value) => {
     const numValue = parseInt(value) || 0;
@@ -49,6 +48,8 @@ export default function Ramadan  ({ramadanProducts})  {
   const getTotalPrice = () => {
     return getCartItems().reduce((sum, item) => sum + item.total, 0);
   };
+
+  const hasItems = getCartItems().length > 0;
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -182,7 +183,13 @@ export default function Ramadan  ({ramadanProducts})  {
         {selectedCategory === "basbousa" && (
           <button
             type="submit"
-            className="w-full py-4 bg-[#e60077] text-white text-xl font-bold rounded-2xl hover:from-purple-700 hover:to-indigo-700 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-[1.02] active:scale-[0.98] flex items-center justify-center gap-3"
+            disabled={!hasItems}
+            className={`w-full py-4 px-6 border-0 rounded-xl font-cormorant text-2xl font-bold tracking-widest transition-all duration-300
+                        ${
+                          hasItems
+                            ? "bg-[#e60077] text-white hover:bg-[#c80060] hover:shadow-xl hover:scale-[1.02] active:scale-[0.98] cursor-pointer"
+                            : "bg-[#e8ddd0] text-[#b09a85] cursor-not-allowed"
+                        }`}
           >
             Place Order - {getTotalPrice()} EGP
           </button>
@@ -196,5 +203,4 @@ export default function Ramadan  ({ramadanProducts})  {
       )}
     </div>
   );
-};
-
+}
