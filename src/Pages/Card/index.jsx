@@ -62,6 +62,7 @@ function Card() {
               FLAVORS={item.FLAVORS}
               PRODUCTS={item.PRODUCTS}
               ramadanProducts={item.ramadanProducts}
+              muffinProducts={item.muffinProducts}
             />
           ) : null}
         </div>

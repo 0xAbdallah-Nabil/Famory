@@ -208,7 +208,48 @@
     "type": "peace",
     "description": "Soft, fluffy muffins baked to perfection in a variety of delightful flavors",
     "image": "https://res.cloudinary.com/dk1q6kpkk/image/upload/v1771373600/muffin2_tcffgu.jpg",
-
+    "muffinProducts": {
+      "3pcs": [
+        {
+          "id": "olympic-chocolate-3",
+          "name": "Olympic Chocolate Muffin",
+          "pieces": "3 PCS",
+          "price": 199
+        },
+        {
+          "id": "blueberry-3",
+          "name": "Blueberry Muffin",
+          "pieces": "3 PCS",
+          "price": 180
+        },
+        {
+          "id": "banana-pudding-3",
+          "name": "Banana Pudding Muffin",
+          "pieces": "3 PCS",
+          "price": 160
+        }
+      ],
+      "6pcs": [
+        {
+          "id": "olympic-chocolate-6",
+          "name": "Olympic Chocolate Muffin",
+          "pieces": "6 PCS",
+          "price": 380
+        },
+        {
+          "id": "blueberry-6",
+          "name": "Blueberry Muffin",
+          "pieces": "6 PCS",
+          "price": 350
+        },
+        {
+          "id": "banana-pudding-6",
+          "name": "Banana Pudding Muffin",
+          "pieces": "6 PCS",
+          "price": 310
+        }
+      ]
+    },
     "avilability": true
   },
   {
