@@ -5,7 +5,6 @@ import Cart from "../Cart/index.jsx";
 import Search from "../Search/index.jsx";
 
 import {
-  faBars,
   faCartShopping,
   faMagnifyingGlass,
 } from "@fortawesome/free-solid-svg-icons";
@@ -16,7 +15,7 @@ import Button from "./Button.jsx";
 import ListItem from "./ListItem.jsx";
 
 export default function Header() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  // const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const { cart, isCartOpen, closeCart, handleToggleCart } = useCart();
@@ -33,14 +32,14 @@ export default function Header() {
               Famory
             </h1>
           </Link>
+          {/*           
           <div className={`m-[0px] max-md:hidden`}>
             <ul className="flex gap-2  font-medium  rounded-lg text-[var(--text-primary)] ">
               <ListItem content="Home" />
               <ListItem content="Our services" />
-              {/* <ListItem content="Our Story" /> */}
-              {/* <ListItem content="Contact" /> */}
             </ul>
-          </div>
+          </div> */}
+
           <div className="flex gap-1">
             <div className="relative">
               <Button
@@ -58,22 +57,12 @@ export default function Header() {
               )}
             </div>
             <Button
-              icon={faBars}
-              onClick={() => {
-                setIsMenuOpen((e) => !e);
-                setIsSearchOpen(false);
-                closeCart();
-              }}
-              className="md:hidden active:scale-90"
-            />
-
-            <Button
               icon={faMagnifyingGlass}
               onClick={() => {
                 setIsSearchOpen((e) => !e);
                 closeCart();
               }}
-              className="hidden md:flex active:scale-90 "
+              className="flex active:scale-90 "
             />
           </div>
         </div>
@@ -81,7 +70,7 @@ export default function Header() {
       {isSearchOpen && (
         <Search isSearchOpen={isSearchOpen} setIsSearchOpen={setIsSearchOpen} />
       )}
-      <MobileMenu isOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} />
+
       {isCartOpen && <Cart />}
     </>
   );

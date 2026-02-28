@@ -56,10 +56,10 @@ export default function OurServices() {
                   {service.title}
                 </h3>
 
-                {/* Description */}
+                {/* Description
                 <p className="text-xs md:text-base text-gray-700 mb-3 md:mb-6 leading-relaxed line-clamp-3 md:line-clamp-none">
                   {service.description}
-                </p>
+                </p> */}
 
                 {/* Button */}
                 <button
