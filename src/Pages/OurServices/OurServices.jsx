@@ -18,8 +18,7 @@ export default function OurServices() {
           </h1>
           <div className="w-16 md:w-24 h-1 bg-[#e60077] mx-auto mb-3 md:mb-6"></div>
           <p className="text-sm md:text-xl text-gray-600 max-w-2xl mx-auto px-2">
-            Discover our handcrafted selections, baked fresh with love and the
-            finest ingredients
+            Made to turn simple moments into sweet memories 🤍
           </p>
         </div>
 

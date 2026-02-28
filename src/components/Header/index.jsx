@@ -32,8 +32,8 @@ export default function Header() {
               Famory
             </h1>
           </Link>
-          {/*           
-          <div className={`m-[0px] max-md:hidden`}>
+
+          {/* <div className={`m-[0px] max-md:hidden`}>
             <ul className="flex gap-2  font-medium  rounded-lg text-[var(--text-primary)] ">
               <ListItem content="Home" />
               <ListItem content="Our services" />

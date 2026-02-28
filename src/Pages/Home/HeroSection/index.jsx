@@ -12,16 +12,10 @@ export default function HeroSection() {
   return (
     <div className="relative">
       <div className="relative overflow-hidden h-[50vh] sm:h-[60vh] md:h-[90vh]">
-        <video
+        <img
           className="absolute top-0 left-0 w-full h-full object-cover"
-          autoPlay
-          loop
-          muted
-          playsInline
-        >
-          <source src={HeroVideo} type="video/mp4" />
-          Your browser does not support the video tag.
-        </video>
+          src="https://res.cloudinary.com/dk1q6kpkk/image/upload/v1772316311/herosection_image_zpjnmk.jpg"
+        />
         {/* {over lay} */}
         <div className="absolute top-0 left-0 w-full h-full bg-black opacity-50 "></div>
         <ul className="absolute top-1/2 left-8 transform -translate-x-1/2 -translate-y-1/2 flex gap-4 flex-col">
