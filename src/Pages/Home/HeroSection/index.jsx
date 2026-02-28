@@ -11,13 +11,13 @@ import { Link } from "react-router-dom";
 export default function HeroSection() {
   return (
     <div className="relative">
-      <div className="relative overflow-hidden h-[50vh] sm:h-[60vh] md:h-[90vh]">
+      <div className="relative overflow-hidden h-[30vh] sm:h-[40vh] md:h-[60vh]">
         <img
           className="absolute top-0 left-0 w-full h-full object-cover"
           src="https://res.cloudinary.com/dk1q6kpkk/image/upload/v1772316311/herosection_image_zpjnmk.jpg"
         />
         {/* {over lay} */}
-        <div className="absolute top-0 left-0 w-full h-full bg-black opacity-50 "></div>
+        {/* <div className="absolute top-0 left-0 w-full h-full bg-black opacity-50 "></div> */}
         <ul className="absolute top-1/2 left-8 transform -translate-x-1/2 -translate-y-1/2 flex gap-4 flex-col">
           <ListLink
             name="Instagram"
@@ -42,7 +42,7 @@ export default function HeroSection() {
         </ul>
       </div>
 
-      <div className="flex flex-col justify-center items-center absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center px-4">
+      {/* <div className="flex flex-col justify-center items-center absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center px-4">
         <div className="typewriter text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-10">
           <h1 className="res">
             <span className="Famory res">Welcome </span>
@@ -57,7 +57,7 @@ export default function HeroSection() {
             See Our Services
           </span>
         </Link>
-      </div>
+      </div> */}
     </div>
   );
 }
@@ -69,7 +69,7 @@ export function ListLink(props) {
       target="_blank"
       className="hover:scale-120 social-link text-[var(--primary-color)] rounded-full  bg-white  border-2 w-[250px] flex justify-end items-center gap-3 relative left-[-110px] hover:left-0 transition-all ease-in-out duration-500"
     >
-      <li className=" rounded-full p-2.5">
+      <li className=" rounded-full p-1">
         <span className="text-[var(--primary-color)] font-bold absolute top-1/2 left-1/2 transform -translate-x-1/4 -translate-y-1/2">
           {props.name}
         </span>
