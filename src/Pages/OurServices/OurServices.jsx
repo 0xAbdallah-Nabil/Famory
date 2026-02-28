@@ -13,7 +13,7 @@ export default function OurServices() {
           <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold text-gray-800 mb-2 md:mb-4">
             Our{" "}
             <span className="text-transparent bg-clip-text bg-[#e60077]">
-              Services
+              Menu
             </span>
           </h1>
           <div className="w-16 md:w-24 h-1 bg-[#e60077] mx-auto mb-3 md:mb-6"></div>
