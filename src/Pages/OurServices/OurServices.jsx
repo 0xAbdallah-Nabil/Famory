@@ -8,70 +8,69 @@ export default function OurServices() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-amber-50 via-orange-50 to-rose-50">
       {/* Header Section */}
-      <div className="container mx-auto px-4 py-16">
-        <div className="text-center mb-16">
-          <h1 className="text-5xl md:text-6xl font-bold text-gray-800 mb-4">
+      <div className="container mx-auto px-3 py-8 md:px-4 md:py-16">
+        <div className="text-center mb-8 md:mb-16">
+          <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold text-gray-800 mb-2 md:mb-4">
             Our{" "}
             <span className="text-transparent bg-clip-text bg-[#e60077]">
               Services
             </span>
           </h1>
-          <div className="w-24 h-1 bg-[#e60077] mx-auto mb-6"></div>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+          <div className="w-16 md:w-24 h-1 bg-[#e60077] mx-auto mb-3 md:mb-6"></div>
+          <p className="text-sm md:text-xl text-gray-600 max-w-2xl mx-auto px-2">
             Discover our handcrafted selections, baked fresh with love and the
             finest ingredients
           </p>
         </div>
 
         {/* Services Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-7xl mx-auto">
+        <div className="grid grid-cols-2 lg:grid-cols-3 gap-3 md:gap-8 max-w-7xl mx-auto">
           {services.map((service, index) => (
             <Link
               to={`/our-services/${service.id}`}
               key={service.id}
-              className={`group relative ${service.avilability ? "" : " opacity-50 pointer-events-none"}`}
+              className={`group relative ${service.avilability ? "" : "opacity-50 pointer-events-none"}`}
               style={{
                 animation: `fadeInUp 0.6s ease-out ${index * 0.2}s both`,
               }}
             >
               <div
-                className={`
-                relative h-full rounded-3xl p-8 
-              bg-white
-                shadow-lg hover:shadow-2xl
-                transition-all duration-500 ease-out
-                transform hover:-translate-y-2
-                border-2 border-white/50
-              `}
+                className="
+                  relative h-full rounded-2xl md:rounded-3xl p-3 md:p-8
+                  bg-white
+                  shadow-md hover:shadow-2xl
+                  transition-all duration-500 ease-out
+                  transform hover:-translate-y-2
+                  border-2 border-white/50
+                "
               >
                 <img
                   src={service.image}
                   alt={service.title}
-                  className="w-full h-48 object-cover rounded-3xl mb-6"
+                  className="w-full h-28 md:h-48 object-cover rounded-xl md:rounded-3xl mb-3 md:mb-6"
                   loading="lazy"
                 />
+
                 {/* Title */}
-                <h3 className="text-3xl font-bold text-gray-800 mb-4">
+                <h3 className="text-base md:text-3xl font-bold text-gray-800 mb-1 md:mb-4 leading-tight">
                   {service.title}
                 </h3>
 
                 {/* Description */}
-                <p className="text-gray-700 mb-6 leading-relaxed">
+                <p className="text-xs md:text-base text-gray-700 mb-3 md:mb-6 leading-relaxed line-clamp-3 md:line-clamp-none">
                   {service.description}
                 </p>
 
                 {/* Button */}
                 <button
                   className={`
-                  w-full py-3 px-6 rounded-xl
-                  ${service.avilability ? "bg-[#e60077] hover:bg-[#c80060] shadow-lg text-white" : "bg-[#e8ddd0] text-black1 cursor-not-allowed"}
-                   font-semibold
-                  transform transition-all duration-300
-                  hover:scale-105
-                  hover:shadow-lg
-                  focus:outline-none focus:ring-2 focus:ring-[#e60077] focus:ring-offset-2
-                  
-                `}
+                    w-full py-2 md:py-3 px-3 md:px-6 rounded-lg md:rounded-xl
+                    text-xs md:text-base font-semibold
+                    ${service.avilability ? "bg-[#e60077] hover:bg-[#c80060] shadow-lg text-white" : "bg-[#e8ddd0] text-black cursor-not-allowed"}
+                    transform transition-all duration-300
+                    hover:scale-105 hover:shadow-lg
+                    focus:outline-none focus:ring-2 focus:ring-[#e60077] focus:ring-offset-2
+                  `}
                   disabled={!service.avilability}
                 >
                   Explore Menu
