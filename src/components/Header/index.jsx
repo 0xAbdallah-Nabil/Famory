@@ -29,7 +29,7 @@ export default function Header() {
             className="sm:flex-start flex-center flex items-center rtl:space-x-reverse h-[60px] focus-border-0 border-0"
           >
             <h1 className="not-italic font-[Fedrin_Sambo] font-normal text-[40px] leading-[48px] text-[var(--primary-color)] border-none">
-              Famory
+              FAMORY
             </h1>
           </Link>
 
