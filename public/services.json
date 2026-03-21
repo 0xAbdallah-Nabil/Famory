@@ -259,8 +259,39 @@
     "type": "not",
     "description": "Beautifully crafted cards to accompany your sweet gifts for any special occasion",
     "image": "https://res.cloudinary.com/dk1q6kpkk/image/upload/v1771374442/gift_card_2_ywdgf1.jpg",
-
-    "avilability": false
+    "PRODUCTS": [
+      {
+        "id": "eid-cards",
+        "name": "Eid Gift Cards",
+        "category": "eid",
+        "price": 35,
+        "images": [
+          "https://res.cloudinary.com/dk1q6kpkk/image/upload/v1774107786/EId_card_page-0001_rsesat.jpg",
+          "https://res.cloudinary.com/dk1q6kpkk/image/upload/v1774107786/EId_card_page-0002_es75jy.jpg"
+        ]
+      },
+      {
+        "id": "birthday-cards",
+        "name": "Birthday Gift Cards",
+        "category": "birthday",
+        "price": 35,
+        "images": [
+          "https://res.cloudinary.com/dk1q6kpkk/image/upload/v1774107745/Birthday_card_page-0001_g5met1.jpg",
+          "https://res.cloudinary.com/dk1q6kpkk/image/upload/v1774107746/Birthday_card_page-0002_m5tay1.jpg"
+        ]
+      },
+      {
+        "id": "gift-cards",
+        "name": "Gift Cards",
+        "category": "normal",
+        "price": 35,
+        "images": [
+          "https://res.cloudinary.com/dk1q6kpkk/image/upload/v1774107817/Gift_card_page-0001_clxcuu.jpg",
+          "https://res.cloudinary.com/dk1q6kpkk/image/upload/v1774107817/Gift_card_page-0002_f68cz5.jpg"
+        ]
+      }
+    ],
+    "avilability": true
   },
   {
     "id": 9,

@@ -136,7 +136,7 @@ const Cinnabon = ({ PRODUCTS }) => {
               </div>
 
               {/* Quantity Controls */}
-              <div className="flex items-center justify-center gap-3 mt-4 ">
+              <disv className="flex items-center justify-center gap-3 mt-4 ">
                 <button
                   type="button"
                   onClick={() => decrementQuantity(product.id)}
@@ -160,7 +160,7 @@ const Cinnabon = ({ PRODUCTS }) => {
                 >
                   +
                 </button>
-              </div>
+              </disv>
               {quantities[product.id] > 0 && (
                 <div className="flex justify-center items-center gap-2 w-full">
                   <p className="text-sm text-[#e60077] font-semibold">

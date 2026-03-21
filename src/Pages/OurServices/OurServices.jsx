@@ -28,7 +28,7 @@ export default function OurServices() {
             <Link
               to={`/our-services/${service.id}`}
               key={service.id}
-              className={`group relative ${service.avilability ? "" : "opacity-50 pointer-events-none"}`}
+              className={`group relative ${service.avilability ? "" : "opacity-50 pointer-events-none"} card-container`}
               style={{
                 animation: `fadeInUp 0.6s ease-out ${index * 0.2}s both`,
               }}
@@ -51,7 +51,7 @@ export default function OurServices() {
                 />
 
                 {/* Title */}
-                <h3 className="text-base md:text-3xl font-bold text-gray-800 mb-1 md:mb-4 leading-tight">
+                <h3 className="text-center md:text-3xl font-bold text-gray-800 mb-1 md:mb-4 leading-tight">
                   {service.title}
                 </h3>
 
@@ -63,6 +63,7 @@ export default function OurServices() {
                 {/* Button */}
                 <button
                   className={`
+                    card-button
                     w-full py-2 md:py-3 px-3 md:px-6 rounded-lg md:rounded-xl
                     text-xs md:text-base font-semibold
                     ${service.avilability ? "bg-[#e60077] hover:bg-[#c80060] shadow-lg text-white" : "bg-[#e8ddd0] text-black cursor-not-allowed"}
