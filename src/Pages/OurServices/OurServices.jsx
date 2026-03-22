@@ -35,7 +35,7 @@ export default function OurServices() {
             >
               <div
                 className="
-                  relative h-full rounded-2xl md:rounded-3xl p-3 md:p-8
+                  relative h-full rounded-2xl md:rounded-3xl p-3
                   bg-white
                   shadow-md hover:shadow-2xl
                   transition-all duration-500 ease-out
@@ -51,30 +51,9 @@ export default function OurServices() {
                 />
 
                 {/* Title */}
-                <h3 className="text-center md:text-3xl font-bold text-gray-800 mb-1 md:mb-4 leading-tight">
+                <h3 className="text-center md:text-2xl font-bold text-gray-800 mb-1 md:mb-4 leading-tight">
                   {service.title}
                 </h3>
-
-                {/* Description
-                <p className="text-xs md:text-base text-gray-700 mb-3 md:mb-6 leading-relaxed line-clamp-3 md:line-clamp-none">
-                  {service.description}
-                </p> */}
-
-                {/* Button */}
-                <button
-                  className={`
-                    card-button
-                    w-full py-2 md:py-3 px-3 md:px-6 rounded-lg md:rounded-xl
-                    text-xs md:text-base font-semibold
-                    ${service.avilability ? "bg-[#e60077] hover:bg-[#c80060] shadow-lg text-white" : "bg-[#e8ddd0] text-black cursor-not-allowed"}
-                    transform transition-all duration-300
-                    hover:scale-105 hover:shadow-lg
-                    focus:outline-none focus:ring-2 focus:ring-[#e60077] focus:ring-offset-2
-                  `}
-                  disabled={!service.avilability}
-                >
-                  Explore Menu
-                </button>
 
                 {/* Decorative corner element */}
                 <div className="absolute top-4 right-4 w-20 h-20 bg-white/30 rounded-full blur-2xl"></div>

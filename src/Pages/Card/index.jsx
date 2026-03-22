@@ -1,5 +1,5 @@
 import { useParams } from "react-router-dom";
-
+import LoadingPage from "./IsLoading.jsx";
 import Unavilable from "./Unavilable.jsx";
 import ChheeseCake from "./ChheeseCake/ChheeseCake.jsx";
 import Cinnabon from "./Cinnabon/Cinnabon.jsx";
@@ -27,15 +27,17 @@ const componentMap = {
 
 function Card() {
   const { id } = useParams();
-  const { products } = useFetch("services.json");
+  const { products, isLoading } = useFetch("services.json");
   const item = products.find((item) => String(item.id) === String(id));
 
   if (!item) return null;
   if (item.avilability === false) return <Unavilable key={item.id} />;
-
+  if (isLoading) return <LoadingPage />;
   const Component = componentMap[item.id];
 
-  return (
+  return isLoading ? (
+    <LoadingPage />
+  ) : (
     <div className="bg-[#fff9ed]">
       <section className="  grid grid-cols-1 lg:grid-cols-2 gap-10 p-6 lg:p-10 max-w-[90%] mx-auto min-h-[80vh] items-center">
         <div className=" relative  h-full">
@@ -51,10 +53,6 @@ function Card() {
             <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-center smooth-sans">
               {item.title}
             </h1>
-          </div>
-
-          <div className="flex gap-3 items-center mb-5 w-full justify-center px-2">
-            <p className="text-lg sm:text-xl text-center">{item.description}</p>
           </div>
 
           {Component ? (
