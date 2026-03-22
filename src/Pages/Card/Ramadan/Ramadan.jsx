@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import useCart from "../../../hooks/useCart.js";
 import CreamyPuffsForm from "../CreamyBuffs/CreamyBuffs.jsx";
+import CategoryButton from "../CategoryButton.jsx";
 import Swal from "sweetalert2";
 export default function Ramadan({ ramadanProducts }) {
   const { handleAddToCart, openCart } = useCart();
@@ -78,26 +79,18 @@ export default function Ramadan({ ramadanProducts }) {
     <div className="w-full">
       {/* Category Tabs */}
       <div className="flex gap-3 mb-8 justify-center flex-wrap">
-        <button
-          onClick={() => setSelectedCategory("basbousa")}
-          className={`px-8 py-3 rounded-full font-semibold transition-all duration-300 ${
-            selectedCategory === "basbousa"
-              ? "bg-[#e60077] text-white shadow-lg scale-105"
-              : "bg-white text-[#e60077] hover:bg-[#fbeaf5] border-2 border-[#e60077]"
-          }`}
-        >
-          Basbousa Trays
-        </button>
-        <button
-          onClick={() => setSelectedCategory("creamyPuffs")}
-          className={`px-8 py-3 rounded-full font-semibold transition-all duration-300 ${
-            selectedCategory === "creamyPuffs"
-              ? "bg-[#e60077] text-white shadow-lg scale-105"
-              : "bg-white text-[#e60077] hover:bg-[#fbeaf5] border-2 border-[#e60077]"
-          }`}
-        >
-          Ramadan Creamy Puffs
-        </button>
+        <CategoryButton
+          title="Basbousa Trays"
+          selected={"basbousa"}
+          selectedCategory={selectedCategory}
+          setSelectedCategory={setSelectedCategory}
+        />
+        <CategoryButton
+          title="Ramadan Creamy Puffs"
+          selected={"creamyPuffs"}
+          selectedCategory={selectedCategory}
+          setSelectedCategory={setSelectedCategory}
+        />
       </div>
 
       {/* Products Form */}

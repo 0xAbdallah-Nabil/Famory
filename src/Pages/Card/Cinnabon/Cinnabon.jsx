@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import useCart from "../../../hooks/useCart.js";
+import CategoryButton from "../CategoryButton.jsx";
 import Swal from "sweetalert2";
 const Cinnabon = ({ PRODUCTS }) => {
   const cinnamonProducts = PRODUCTS || { classic: [], mini: [] };
@@ -75,26 +76,19 @@ const Cinnabon = ({ PRODUCTS }) => {
     <div className="w-full">
       {/* Category Tabs */}
       <div className="flex gap-3 mb-8 justify-center flex-wrap">
-        <button
-          onClick={() => setSelectedCategory("classic")}
-          className={`px-8 py-3 rounded-full font-semibold transition-all duration-300 ${
-            selectedCategory === "classic"
-              ? "bg-[#e60077] text-white shadow-lg scale-105"
-              : "bg-white text-[#e60077] hover:bg-[#fbeaf5] border-2 border-[#e60077]"
-          }`}
-        >
-          🍥 Family Cinnamon (4 PCS)
-        </button>
-        <button
-          onClick={() => setSelectedCategory("mini")}
-          className={`px-8 py-3 rounded-full font-semibold transition-all duration-300 ${
-            selectedCategory === "mini"
-              ? "bg-[#e60077] text-white shadow-lg scale-105"
-              : "bg-white text-[#e60077] hover:bg-[#fbeaf5] border-2 border-[#e60077]"
-          }`}
-        >
-          ✨ Mini Box (9 PCS)
-        </button>
+        <CategoryButton
+          title="✨ Classic (4 PCS)"
+          selected={ "classic"}
+          selectedCategory={selectedCategory}
+          setSelectedCategory={setSelectedCategory}
+        />
+        
+        <CategoryButton
+          title="✨ Mini (9 PCS)"
+          selected={ "mini"}
+          selectedCategory={selectedCategory}
+          setSelectedCategory={setSelectedCategory}
+        />
       </div>
 
       {/* Products Form */}

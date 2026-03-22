@@ -1,5 +1,5 @@
 import PuffSlot from "./PuffSlot";
-
+import CategoryButton from "../CategoryButton";
 export default function BoxCard({
   boxIndex,
   box,

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import useCart from "../../../hooks/useCart";
-
+import CategoryButton from "../CategoryButton";
 import Swal from "sweetalert2";
 export default function Muffin({ muffinProducts }) {
   const [selectedCategory, setSelectedCategory] = useState("3pcs");
@@ -62,26 +62,19 @@ export default function Muffin({ muffinProducts }) {
     <div className="w-full">
       {/* Category Tabs */}
       <div className="flex gap-4 mb-8 justify-center flex-wrap">
-        <button
-          onClick={() => setSelectedCategory("3pcs")}
-          className={`px-8 py-3.5 rounded-full font-bold transition-all duration-300 text-base ${
-            selectedCategory === "3pcs"
-              ? "bg-[#e60077] text-white shadow-lg scale-105"
-              : "bg-white text-[#e60077] border-2 border-[#e60077] hover:bg-[#e60077] hover:text-white"
-          }`}
-        >
-          3 Pieces
-        </button>
-        <button
-          onClick={() => setSelectedCategory("6pcs")}
-          className={`px-8 py-3.5 rounded-full font-bold transition-all duration-300 text-base ${
-            selectedCategory === "6pcs"
-              ? "bg-[#e60077] text-white shadow-lg scale-105"
-              : "bg-white text-[#e60077] border-2 border-[#e60077] hover:bg-amber-50"
-          }`}
-        >
-          6 Pieces
-        </button>
+        <CategoryButton
+          title="3 Pieces"
+          selected={"3pcs"}
+          selectedCategory={selectedCategory}
+          setSelectedCategory={setSelectedCategory}
+        />
+        <CategoryButton
+          title="6 Pieces"
+          selected={"6pcs"}
+          selectedCategory={selectedCategory}
+          setSelectedCategory={setSelectedCategory}
+        />
+
       </div>
 
       {/* Products Form */}

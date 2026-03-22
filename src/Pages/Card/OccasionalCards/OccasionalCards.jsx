@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import useCart from "../../../hooks/useCart.js";
 import Swal from "sweetalert2";
-import CategoryButton from "./CategoryButton.jsx";
+import CategoryButton from "../CategoryButton.jsx";
 const OccasionalCards = ({ PRODUCTS }) => {
   const [selectedCategory, setSelectedCategory] = useState("eid");
   const { handleAddToCart, openCart } = useCart();
@@ -44,7 +44,7 @@ const OccasionalCards = ({ PRODUCTS }) => {
         total: quantities[card.id] * card.price,
       }));
   };
-
+  const hasItems = getCartItems().length > 0;
   const getTotalPrice = () => {
     return getCartItems().reduce((sum, item) => sum + item.total, 0);
   };
@@ -297,8 +297,13 @@ const OccasionalCards = ({ PRODUCTS }) => {
         {/* Submit Button */}
         <button
           type="submit"
-          className="w-full py-4 text-white text-xl font-bold rounded-2xl transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-[1.02] active:scale-[0.98]"
-          style={{ backgroundColor: "#e60077" }}
+          className={`w-full py-4 text-xl font-bold rounded-2xl transition-all duration-300 shadow-lg transform
+            ${
+              hasItems
+                ? "bg-[#e60077] text-white hover:bg-[#c80060] hover:shadow-xl hover:scale-[1.02] active:scale-[0.98] cursor-pointer"
+                : "bg-[#e8ddd0] text-[#b09a85] cursor-not-allowed"
+            }`}
+          disabled={!hasItems}
           onMouseEnter={(e) => (e.target.style.opacity = "0.9")}
           onMouseLeave={(e) => (e.target.style.opacity = "1")}
         >

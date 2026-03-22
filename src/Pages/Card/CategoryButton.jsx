@@ -9,7 +9,7 @@ function CategoryButton({
       <button
         onClick={() => setSelectedCategory(selected)}
         className={`px-4 py-1.5 rounded-full font-bold transition-all duration-300 text-base ${
-          selectedCategory === "eid"
+          selectedCategory === `${selected}`
             ? "text-white shadow-lg scale-105"
             : "bg-white border-2 hover:bg-pink-50"
         }`}
