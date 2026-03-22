@@ -103,11 +103,11 @@ export default function Muffin({ muffinProducts }) {
             >
               <div className="flex justify-between items-center mb-4">
                 <div className="flex items-center gap-3 flex-1">
-                  <h4 className="text-xl font-bold text-gray-900">
+                  <h4 className="text-sm font-bold text-gray-900">
                     {product.name} : {product.pieces}
                   </h4>
                 </div>
-                <span className="text-2xl font-bold text-gray-900">
+                <span className="text-sm font-bold text-gray-900">
                   {product.price} EGP
                 </span>
               </div>
@@ -146,7 +146,7 @@ export default function Muffin({ muffinProducts }) {
         <button
           type="submit"
           disabled={!hasItems}
-          className={`w-full py-4 px-6 border-0 rounded-xl font-cormorant text-2xl font-bold tracking-widest transition-all duration-300
+          className={`w-full py-4 px-6 border-0 rounded-xl font-cormorant text-md font-bold tracking-widest transition-all duration-300
                         ${
                           hasItems
                             ? "bg-[#e60077] text-white hover:bg-[#c80060] hover:shadow-xl hover:scale-[1.02] active:scale-[0.98] cursor-pointer"

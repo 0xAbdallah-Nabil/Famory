@@ -121,14 +121,13 @@ export default function Ramadan({ ramadanProducts }) {
                 <div className="flex flex-col  justify-between w-full gap-4">
                   <div className="flex flex-col">
                     <div className="flex justify-between items-center">
-                      <h4 className="text-xl font-bold text-black mb-2">
+                      <h4 className="text-sm font-bold text-black mb-2">
                         {product.name} "{product.serves}"
                       </h4>
-                      <div className="text-xl font-bold text-black">
+                      <div className="text-sm font-bold text-black">
                         {product.price} EGP
                       </div>
                     </div>
-                    <p className="text-black mb-2">{product.description}</p>
                   </div>
 
                   {/* Quantity Controls */}
@@ -177,7 +176,7 @@ export default function Ramadan({ ramadanProducts }) {
           <button
             type="submit"
             disabled={!hasItems}
-            className={`w-full py-4 px-6 border-0 rounded-xl font-cormorant text-2xl font-bold tracking-widest transition-all duration-300
+            className={`w-full py-4 px-6 border-0 rounded-xl font-cormorant text-md font-bold tracking-widest transition-all duration-300
                         ${
                           hasItems
                             ? "bg-[#e60077] text-white hover:bg-[#c80060] hover:shadow-xl hover:scale-[1.02] active:scale-[0.98] cursor-pointer"

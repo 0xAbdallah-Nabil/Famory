@@ -117,12 +117,12 @@ const Cinnabon = ({ PRODUCTS }) => {
             >
               <div className="flex justify-evenly items-center mb-3">
                 <div className="flex flex-row items-center gap-3 justify-between w-full">
-                  <h4 className="text-lg font-bold text-black mb-1">
+                  <h4 className="text-sm font-bold text-black mb-1">
                     {product.name} : {product.pieces}
                   </h4>
 
                   <div className="flex gap-4">
-                    <div className="text-xl font-bold text-black">
+                    <div className="text-sm font-bold text-black">
                       {product.price} EGP
                     </div>
                   </div>
@@ -173,7 +173,7 @@ const Cinnabon = ({ PRODUCTS }) => {
         <button
           type="submit"
           disabled={!hasItems}
-          className={`w-full py-4 text-xl font-bold rounded-2xl transition-all duration-300 shadow-lg transform
+          className={`w-full py-4 text-md font-bold rounded-2xl transition-all duration-300 shadow-lg transform
             ${
               hasItems
                 ? "bg-[#e60077] text-white hover:bg-[#c80060] hover:shadow-xl hover:scale-[1.02] active:scale-[0.98] cursor-pointer"
