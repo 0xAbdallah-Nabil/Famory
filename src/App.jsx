@@ -6,7 +6,7 @@ import Home from "./Pages/Home/Home.jsx";
 import Header from "./components/Header/index.jsx";
 import Footer from "./components/Footer/index.jsx";
 import Card from "./Pages/Card/index.jsx";
-import DiscountSection from "./components/DiscountSection/DiscountSection.jsx";
+import DiscountSection from "./components/DiscountSection/index.jsx";
 import Checkout from "./Pages/Checkout/Checkout.jsx";
 import OurServices from "./Pages/Home/OurServices.jsx";
 import ScrollToTop from "./components/ScrollToTop.jsx";
