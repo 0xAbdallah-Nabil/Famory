@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import useCart from "../../../hooks/useCart.js";
-import Swal from "sweetalert2";
 import CategoryButton from "../CategoryButton.jsx";
 const OccasionalCards = ({ PRODUCTS }) => {
   const [selectedCategory, setSelectedCategory] = useState("eid");
@@ -52,15 +51,6 @@ const OccasionalCards = ({ PRODUCTS }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     const cartItems = getCartItems();
-    if (cartItems.length === 0) {
-      Swal.fire({
-        title: "No items selected",
-        text: "Please select at least one item to add to cart.",
-        icon: "warning",
-      });
-      return;
-    }
-
     // Add each selected item to the cart
     cartItems.forEach((item) => {
       handleAddToCart(item, item.quantity);

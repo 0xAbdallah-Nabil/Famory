@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import useCart from "../../../hooks/useCart";
 import CategoryButton from "../CategoryButton";
-import Swal from "sweetalert2";
 export default function Muffin({ muffinProducts }) {
   const [selectedCategory, setSelectedCategory] = useState("3pcs");
   const [quantities, setQuantities] = useState({});

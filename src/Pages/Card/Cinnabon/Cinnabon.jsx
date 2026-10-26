@@ -1,5 +1,4 @@
 import { useMemo, useState } from "react";
-import Swal from "sweetalert2";
 import useCart from "../../../hooks/useCart.js";
 import ProductCard from "../ProductCard.jsx";
 
@@ -41,15 +40,6 @@ export default function Cinnabon({ PRODUCTS }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (!hasItems) {
-      Swal.fire({
-        title: "No items selected",
-        text: "Please select at least one item to add to cart.",
-        icon: "warning",
-        confirmButtonColor: "#e60077",
-      });
-      return;
-    }
     cartItems.forEach((item) => handleAddToCart(item, item.quantity));
     openCart();
     setQuantities({});

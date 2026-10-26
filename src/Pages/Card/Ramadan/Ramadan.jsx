@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import useCart from "../../../hooks/useCart.js";
 import CreamyPuffsForm from "../CreamyBuffs/CreamyBuffs.jsx";
 import CategoryButton from "../CategoryButton.jsx";
-import Swal from "sweetalert2";
 export default function Ramadan({ ramadanProducts }) {
   const { handleAddToCart, openCart } = useCart();
   const [selectedCategory, setSelectedCategory] = useState("basbousa");
@@ -55,14 +54,6 @@ export default function Ramadan({ ramadanProducts }) {
   const handleSubmit = (e) => {
     e.preventDefault();
     const cartItems = getCartItems();
-    if (cartItems.length === 0) {
-      Swal.fire({
-        title: "No items selected",
-        text: "Please select at least one item to add to cart.",
-        icon: "warning",
-      });
-      return;
-    }
     // Add each selected item to the cart
     cartItems.forEach((item) => {
       // Check if item already exists in cart by id
