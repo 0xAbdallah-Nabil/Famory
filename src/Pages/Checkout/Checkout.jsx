@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import useCart from "../../hooks/useCart.js";
-import Swal from "sweetalert2";
 export default function CheckoutPage() {
   // Sample cart items - in real app, this would come from props or context
   const { cart } = useCart();

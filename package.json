@@ -9,6 +9,10 @@
     "lint": "eslint .",
     "preview": "vite preview"
   },
+  "allowScripts": {
+    "@tailwindcss/oxide@4.1.13": true,
+    "esbuild@0.28.2": true
+  },
   "dependencies": {
     "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.14.1",
