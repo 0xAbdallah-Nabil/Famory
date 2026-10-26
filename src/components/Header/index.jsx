@@ -1,76 +1,64 @@
 import { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
-
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCartShopping, faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import Cart from "../Cart/index.jsx";
 import Search from "../Search/index.jsx";
-
-import {
-  faCartShopping,
-  faMagnifyingGlass,
-} from "@fortawesome/free-solid-svg-icons";
-import "./style.css";
 import useCart from "../../hooks/useCart.js";
-import MobileMenu from "./MobileMenu.jsx";
-import Button from "./Button.jsx";
-import ListItem from "./ListItem.jsx";
+
+const iconBtn =
+  "grid h-11 w-11 place-items-center rounded-full text-primary transition hover:bg-primary-soft active:scale-90";
+
+const navLink = ({ isActive }) =>
+  `rounded-full px-4 py-2 text-sm font-bold transition ${
+    isActive ? "bg-primary text-white" : "text-cocoa hover:bg-primary-soft"
+  }`;
 
 export default function Header() {
-  // const [isMenuOpen, setIsMenuOpen] = useState(false);
-
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const { cart, isCartOpen, closeCart, handleToggleCart } = useCart();
 
   return (
     <>
-      <nav className=" border-1 border-[var(--primary-color)] bg-[var(--secondary-color)] ">
-        <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-2">
-          <Link
-            to="/"
-            className="sm:flex-start flex-center flex items-center rtl:space-x-reverse h-[60px] focus-border-0 border-0"
-          >
-            <h1 className="not-italic font-[Fedrin_Sambo] font-normal text-[40px] leading-[48px] text-[var(--primary-color)] border-none">
-              FAMORY
-            </h1>
+      <header className="sticky top-0 z-40 border-b border-primary/10 bg-cream/85 backdrop-blur-md">
+        <nav className="mx-auto flex max-w-screen-xl items-center justify-between px-4 py-2">
+          <Link to="/" aria-label="Famory home">
+            <span className="font-brand text-4xl leading-none text-primary">FAMORY</span>
           </Link>
 
-          {/* <div className={`m-[0px] max-md:hidden`}>
-            <ul className="flex gap-2  font-medium  rounded-lg text-[var(--text-primary)] ">
-              <ListItem content="Home" />
-              <ListItem content="Our services" />
-            </ul>
-          </div> */}
+          <div className="hidden items-center gap-1 sm:flex">
+            <NavLink to="/" end className={navLink}>Home</NavLink>
+            <NavLink to="/our-services" className={navLink}>Our Services</NavLink>
+          </div>
 
-          <div className="flex gap-1">
-            <div className="relative">
-              <Button
-                icon={faCartShopping}
-                onClick={() => {
-                  handleToggleCart();
-                  setIsSearchOpen(false);
-                }}
-                className="active:scale-90"
-              />
+          <div className="flex items-center gap-1">
+            <button
+              type="button"
+              aria-label="Search"
+              className={iconBtn}
+              onClick={() => { setIsSearchOpen((v) => !v); closeCart(); }}
+            >
+              <FontAwesomeIcon icon={faMagnifyingGlass} />
+            </button>
+
+            <button
+              type="button"
+              aria-label={`Cart, ${cart.length} items`}
+              className={`${iconBtn} relative`}
+              onClick={() => { handleToggleCart(); setIsSearchOpen(false); }}
+            >
+              <FontAwesomeIcon icon={faCartShopping} />
               {cart.length > 0 && (
-                <span className="absolute -top-1 -right-1 bg-red-500 text-white text-xs font-bold rounded-full px-1">
+                <span className="absolute right-0 top-0 grid h-5 min-w-5 place-items-center rounded-full bg-primary px-1 text-[11px] font-bold text-white ring-2 ring-cream">
                   {cart.length}
                 </span>
               )}
-            </div>
-            <Button
-              icon={faMagnifyingGlass}
-              onClick={() => {
-                setIsSearchOpen((e) => !e);
-                closeCart();
-              }}
-              className="flex active:scale-90 "
-            />
+            </button>
           </div>
-        </div>
-      </nav>
-      {isSearchOpen && (
-        <Search isSearchOpen={isSearchOpen} setIsSearchOpen={setIsSearchOpen} />
-      )}
+        </nav>
+      </header>
 
+      {isSearchOpen && <Search isSearchOpen={isSearchOpen} setIsSearchOpen={setIsSearchOpen} />}
       {isCartOpen && <Cart />}
     </>
   );

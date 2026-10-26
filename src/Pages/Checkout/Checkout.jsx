@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import useCart from "../../hooks/useCart.js";
-import handleCheckout from "../../hooks/useDB.js";
 import Swal from "sweetalert2";
 export default function CheckoutPage() {
   // Sample cart items - in real app, this would come from props or context
@@ -63,12 +62,8 @@ export default function CheckoutPage() {
     e.preventDefault();
 
     if (validateForm()) {
-      handleCheckout(cartItems, formData);
-      Swal.fire({
-        title: "Success!",
-        text: "Your order has been placed successfully!",
-        icon: "success",
-      });
+      // Here you would typically send the form data to your server
+      console.log("Form submitted:", formData, "Cart items:", cartItems);
     }
   };
 

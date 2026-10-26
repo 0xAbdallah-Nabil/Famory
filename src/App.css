@@ -1,52 +1,58 @@
+@import url("https://fonts.googleapis.com/css2?family=Archivo+Black&family=Nunito:wght@400;600;700&display=swap");
 @import "tailwindcss";
+@keyframes marquee-ltr {
+  from { transform: translateX(-50%); }
+  to   { transform: translateX(0); }
+}
+
+.marquee-track {
+  animation: marquee-ltr 35s linear infinite;
+}
 
 @font-face {
   font-family: "Fedrin Sambo";
-  font-style: normal;
-  font-weight: normal;
-  src:
-    local("Fedrin Sambo"),
-    url("./assets/FedrinSamboRegular-XGP4G.woff") format("woff");
+  font-display: swap;
+  src: url("./assets/FedrinSamboRegular-XGP4G.woff") format("woff");
 }
-@font-face {
-  font-family: "Smooch Sans";
-  font-style: normal;
-  font-weight: 100 900;
-  src: url("./assets/SmoochSans-VariableFont_wght.ttf") format("truetype");
-} /* latin-ext */
-@font-face {
-  font-family: "Archivo Black";
-  font-style: normal;
-  font-weight: 400;
-  src: url(https://fonts.gstatic.com/s/archivoblack/v23/HTxqL289NzCGg4MzN6KJ7eW6CYKF_i7y.woff2)
-    format("woff2");
-  unicode-range:
-    U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304,
-    U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB,
-    U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+
+@theme {
+  --color-primary: #e60077;
+  --color-primary-dark: #c80060;
+  --color-primary-soft: #ffe3f0;
+  --color-cream: #fff8f3;
+  --color-sand: #e8ddd0;
+  --color-cocoa: #3b2418;
+
+  --font-brand: "Fedrin Sambo", cursive;   /* logo + hero headline only */
+  --font-display: "Archivo Black", sans-serif; /* headings, prices */
+  --font-sans: "Nunito", system-ui, sans-serif; /* body text */
+
+  --radius-card: 1.25rem;
+  --shadow-card: 0 8px 24px rgb(59 36 24 / 0.08);
+  --shadow-lift: 0 14px 32px rgb(230 0 119 / 0.18);
 }
-/* latin */
-@font-face {
-  font-family: "Archivo Black";
-  font-style: normal;
-  font-weight: 200;
-  src: url(https://fonts.gstatic.com/s/archivoblack/v23/HTxqL289NzCGg4MzN6KJ7eW6CYyF_g.woff2)
-    format("woff2");
-  unicode-range:
-    U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC,
-    U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212,
-    U+2215, U+FEFF, U+FFFD;
+
+/* Aliases so existing components using the old variables keep working */
+:root {
+  --primary-color: var(--color-primary);
+  --secondary-color: var(--color-cream);
+  --background-color: var(--color-cream);
+  --text-color: var(--color-cocoa);
 }
-a {
-  text-decoration: none;
-  border: none;
+
+@layer base {
+  body {
+    @apply bg-cream font-sans text-cocoa antialiased;
+  }
+  a { text-decoration: none; }
+  :focus-visible {
+    outline: 3px solid var(--color-primary);
+    outline-offset: 2px;
+    border-radius: 0.5rem;
+  }
+  h1, h2, h3, h4 { @apply font-display; }
 }
-a:focus {
-  outline: none;
-}
-a:focus-visible {
-  outline: none;
-}
-body {
-  font-family: "Archivo Black", sans-serif !important ;
+
+@media (prefers-reduced-motion: reduce) {
+  * { animation: none !important; transition-duration: 0.01ms !important; }
 }

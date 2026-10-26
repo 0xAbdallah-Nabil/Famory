@@ -8,12 +8,19 @@
     url("FedrinSamboRegular-XGP4G.woff") format("woff");
 }
 :root {
-  --primary-color: #012cae;
-  --secondary-color: #ffb5cf;
-  --background-color: #f9fafb;
-  --text-color: #111827;
-  --text-primary: #012cae;
-  --text-secondary: #ffb5cf;
+  /* warm bakery palette, adjust to your logo */
+  --cream: #fff8f0;
+  --caramel: #c8843c;
+  --cocoa: #3b2418;
+  --berry: #b8325a;
+  --surface: #ffffff;
+
+  --font-display: "Fedrin Sambo", serif;   /* brand moments only */
+  --font-body: "Smooch Sans", system-ui, sans-serif;
+
+  --radius: 16px;
+  --shadow: 0 8px 24px rgb(59 36 24 / 0.10);
+  --space: clamp(1rem, 2vw, 2rem);
 }
 body {
   font-family: sans-serif;

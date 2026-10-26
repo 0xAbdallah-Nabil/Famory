@@ -1,34 +1,34 @@
 import "./App.css";
-import {
-  HashRouter as Router,
-  Routes,
-  Route,
-  Navigate,
-} from "react-router-dom";
-import Home from "./Pages/Home/index.jsx";
+import "lenis/dist/lenis.css";
+import { ReactLenis } from "lenis/react";
+import { HashRouter as Router, Routes, Route, Navigate } from "react-router-dom";
+import Home from "./Pages/Home/Home.jsx";
 import Header from "./components/Header/index.jsx";
 import Footer from "./components/Footer/index.jsx";
-import Error from "./Pages/Error/index.jsx";
 import Card from "./Pages/Card/index.jsx";
-import DiscountSection from "./components/DiscountSection/index.jsx";
-import "./App.css";
+import DiscountSection from "./components/DiscountSection/Error.jsx";
 import Checkout from "./Pages/Checkout/Checkout.jsx";
-import OurServices from "./Pages/OurServices/OurServices.jsx";
-function App() {
+import OurServices from "./Pages/Home/OurServices.jsx";
+import ScrollToTop from "./components/ScrollToTop.jsx";
+
+export default function App() {
   return (
-    <Router>
-      <DiscountSection />
-      <Header />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="*" element={<Navigate to="/" replace />} />
-        <Route path="/checkout" element={<Checkout />} />
-        <Route path="/our-services" element={<OurServices />} />
-        <Route path="/our-services/:id" element={<Card />} />
-      </Routes>
-      <Footer />
-    </Router>
+    <ReactLenis root options={{ lerp: 0.1, duration: 1.2, smoothWheel: true }}>
+      <Router>
+        <ScrollToTop />
+        <DiscountSection />
+        <Header />
+        <main>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/checkout" element={<Checkout />} />
+            <Route path="/our-services" element={<OurServices />} />
+            <Route path="/our-services/:id" element={<Card />} />
+            <Route path="*" element={<Navigate to="/" replace />} />
+          </Routes>
+        </main>
+        <Footer />
+      </Router>
+    </ReactLenis>
   );
 }
-
-export default App;

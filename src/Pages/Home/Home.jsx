@@ -1,5 +1,5 @@
-import HeroSection from "./HeroSection/index.jsx";
-import OurServices from "../OurServices/OurServices.jsx";
+import HeroSection from "./HeroSection.jsx";
+import OurServices from "./OurServices.jsx";
 function Home() {
   return (
     <>
